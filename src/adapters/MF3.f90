@@ -1,26 +1,36 @@
-! MF3 - Adapter from Meteoflux V3.0 to SonicLib form
+! MF3 - Adapter from Meteoflux V3.0 to SonicLib form (Warning: very old format!)
 !
-! Copyright 2012 by Servizi Territorio srl
-!                   All rights reserved
+! Written by: Patrizia Favaron
+! e-mail:     patti.favaron@gmail.com
 !
-!	This is Public Domain Software, released as part of the open source
-!	project "SonicLib".
+!------------------------------------------------------------------
+! Statement of Licensing Conditions
+!------------------------------------------------------------------
 !
-!	Users may use, copy, modify and tweak the software as they like, in
-!	full freedom. In case, Servizi Territorio srl is glad you, the User,
-!	let us know having found this piece of software interesting/useful.
+! Copyright 2022 Università degli Studi di Milano
 !
-!	We kindly suggest, but do not require, you cite Servizi Territorio srl
-!	if this program is used as an instrument to process data used for a
-!	scientific paper or report.
+! Permission is hereby granted, free of charge, to any person
+! obtaining a copy of this software and associated documentation
+! files (the "Software"), to deal in the Software without
+! restriction, including without limitation the rights to use,
+! copy, modify, merge, publish, distribute, sublicense, and/or
+! sell copies of the Software, and to permit persons to whom the
+! Software is furnished to do so, subject to the following conditions:
 !
-!	You may contact the author, Mauri Favaron, at the following mail address:
+! The above copyright notice and this permission notice shall be
+! included in all copies or substantial portions of the Software.
 !
-!		mafavaron@mac.com
+! THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+! EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+! OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+! NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+! HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+! WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+! FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+! OTHER DEALINGS IN THE SOFTWARE.
 !
-!	Of course Servizi Territorio srl does assume no responsibility
-!	about the program suitability to users need.
-!
+!------------------------------------------------------------------
+
 PROGRAM MF3_Adapter
 
 	IMPLICIT NONE
@@ -29,49 +39,49 @@ PROGRAM MF3_Adapter
 	CHARACTER(LEN=256)									:: sInputFile
 	CHARACTER(LEN=256)									:: sCvtFile
 	CHARACTER(LEN=256)									:: sOutputFile
-	INTEGER											:: iRetCode
+	INTEGER												:: iRetCode
 	CHARACTER(LEN=256)									:: sBuffer
-	INTEGER, DIMENSION(:,:), ALLOCATABLE			:: imRecord
-	REAL, DIMENSION(:), ALLOCATABLE					:: rvTimeStamp
-	INTEGER, DIMENSION(:), ALLOCATABLE				:: ivTimeStamp
-	INTEGER, PARAMETER								:: NUM_COLS = 8
+	INTEGER, DIMENSION(:,:), ALLOCATABLE				:: imRecord
+	REAL, DIMENSION(:), ALLOCATABLE						:: rvTimeStamp
+	INTEGER, DIMENSION(:), ALLOCATABLE					:: ivTimeStamp
+	INTEGER, PARAMETER									:: NUM_COLS = 8
 	CHARACTER(LEN=*), DIMENSION(NUM_COLS), PARAMETER	:: COL_NAME = [ &
 		"u  ", "v  ", "w  ", "t  ", "a1 ", "a2 ", "a3 ", "a4 " &
 	]
-	CHARACTER(LEN=*), DIMENSION(10), PARAMETER		:: KNOWN_ANALOG = [ &
+	CHARACTER(LEN=*), DIMENSION(10), PARAMETER			:: KNOWN_ANALOG = [ &
 		"u   ", "v   ", "w   ", "t   ", "q   ", "c   ", "a   ", "m   ", "temp", "hrel" &
 	]
 	REAL												:: rHiResTime
-	INTEGER											:: iSecond
-	INTEGER											:: iNumData
-	INTEGER											:: iData
+	INTEGER												:: iSecond
+	INTEGER												:: iNumData
+	INTEGER												:: iData
 	INTEGER(2), DIMENSION(8)							:: ivValues
 	REAL												:: rBaseTime
-	INTEGER											:: iColumn
+	INTEGER												:: iColumn
 	INTEGER, DIMENSION(NUM_COLS)						:: ivColumnIndex
-	INTEGER											:: iNonEmptyCols
-	INTEGER											:: iPosLastChar
-	LOGICAL											:: lConvertAnalog
-	INTEGER											:: iChannel
+	INTEGER												:: iNonEmptyCols
+	INTEGER												:: iPosLastChar
+	LOGICAL												:: lConvertAnalog
+	INTEGER												:: iChannel
 	REAL												:: rMultiplier
 	REAL												:: rOffset
 	CHARACTER(LEN=4)									:: sVarName
-	INTEGER, DIMENSION(:), ALLOCATABLE				:: ivChannel
-	REAL, DIMENSION(:), ALLOCATABLE					:: rvMultiplier
-	REAL, DIMENSION(:), ALLOCATABLE					:: rvOffset
-	CHARACTER(LEN=4), DIMENSION(:), ALLOCATABLE		:: svVarName
+	INTEGER, DIMENSION(:), ALLOCATABLE					:: ivChannel
+	REAL, DIMENSION(:), ALLOCATABLE						:: rvMultiplier
+	REAL, DIMENSION(:), ALLOCATABLE						:: rvOffset
+	CHARACTER(LEN=4), DIMENSION(:), ALLOCATABLE			:: svVarName
 	INTEGER, DIMENSION(NUM_COLS)						:: ivUsedChannels
 	REAL, DIMENSION(NUM_COLS)							:: rvUsedMultiplier
 	REAL, DIMENSION(NUM_COLS)							:: rvUsedOffset
-	CHARACTER(LEN=4), DIMENSION(NUM_COLS)			:: svUsedVarName
+	CHARACTER(LEN=4), DIMENSION(NUM_COLS)				:: svUsedVarName
 	REAL, DIMENSION(NUM_COLS)							:: rvRecord
-	INTEGER											:: iNumUsedChannels
-	INTEGER											:: iSonicData
-	INTEGER											:: iCvtSpec
-	INTEGER											:: iNumCvtSpecs
-	LOGICAL											:: lTwoEquals
-	INTEGER											:: i, j
-	LOGICAL											:: lQuantityFound
+	INTEGER												:: iNumUsedChannels
+	INTEGER												:: iSonicData
+	INTEGER												:: iCvtSpec
+	INTEGER												:: iNumCvtSpecs
+	LOGICAL												:: lTwoEquals
+	INTEGER												:: i, j
+	LOGICAL												:: lQuantityFound
 	
 	! Get parameters
 	IF(COMMAND_ARGUMENT_COUNT() /= 2 .AND. COMMAND_ARGUMENT_COUNT() /= 3) THEN
@@ -107,9 +117,9 @@ PROGRAM MF3_Adapter
 		PRINT *,"and all analog data whose channels exist and are converted. All in standard"
 		PRINT *,"SonicLib table form."
 		PRINT *
-		PRINT *,"Copyright 2012 by the SonicLib Team - Università Statale di Milano - Dip.Fisica"
+		PRINT *,"Copyright 2012 by Università degli Studi di Milano - Dip.Fisica"
 		PRINT *
-		PRINT *,"This is open source software, under license ..."
+		PRINT *,"This is open source software, under MIT license"
 		PRINT *
 		STOP
 	END IF

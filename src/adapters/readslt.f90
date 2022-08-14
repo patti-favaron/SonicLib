@@ -1,10 +1,39 @@
 ! readslt.f90 - Program to read an SLT data file, and ancode it to
 !               SonicLib raw data file.
 !
-! Author: M.Favaron
+! Author:     Patrizia Favaron
+! e-mail:     patti.favaron@gmail.com
 !
-! Credit: W.Eugster, and his "readslt.R" file. His implementation is followed carefully.
+! Credit: Werner Eugster, and his "readslt.R" file.
+! His implementation is followed carefully.
 !
+!------------------------------------------------------------------
+! Statement of Licensing Conditions
+!------------------------------------------------------------------
+!
+! Copyright 2022 Università degli Studi di Milano
+!
+! Permission is hereby granted, free of charge, to any person
+! obtaining a copy of this software and associated documentation
+! files (the "Software"), to deal in the Software without
+! restriction, including without limitation the rights to use,
+! copy, modify, merge, publish, distribute, sublicense, and/or
+! sell copies of the Software, and to permit persons to whom the
+! Software is furnished to do so, subject to the following conditions:
+!
+! The above copyright notice and this permission notice shall be
+! included in all copies or substantial portions of the Software.
+!
+! THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+! EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+! OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+! NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+! HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+! WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+! FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+! OTHER DEALINGS IN THE SOFTWARE.
+!
+!------------------------------------------------------------------
 
 PROGRAM ReadSlt
 
@@ -93,9 +122,7 @@ PROGRAM ReadSlt
 		PRINT *,'              "q" 0.03   0.0'
 		PRINT *,'              "c" 0.0024 0.0'
 		PRINT *
-		PRINT *,'Copyright 2012 by the SonicLib team.'
-		PRINT *
-		PRINT *,'This program, part of the SonicLib project, is public-domain.'
+		PRINT *,'Copyright 2012 by Università degli Studi di Milano.'
 		PRINT *
 		STOP
 	END IF
