@@ -1,0 +1,191 @@
+\contentsline {chapter}{\numberline {1}Introduction to SonicLib}{7}
+\contentsline {section}{\numberline {1.1}What SonicLib is for}{7}
+\contentsline {section}{\numberline {1.2}Why a new tool?}{7}
+\contentsline {section}{\numberline {1.3}Why R?}{9}
+\contentsline {section}{\numberline {1.4}Style matters}{9}
+\contentsline {section}{\numberline {1.5}The SonicLib Development Process}{10}
+\contentsline {section}{\numberline {1.6}Symbol Glossary}{11}
+\contentsline {chapter}{\numberline {2}SonicLib Workflow}{13}
+\contentsline {section}{\numberline {2.1}Why a Workflow?}{13}
+\contentsline {section}{\numberline {2.2}Reference Workflow}{13}
+\contentsline {section}{\numberline {2.3}Workflow: A More Specific Example}{15}
+\contentsline {subsection}{\numberline {2.3.1}Preserving with results after we got them}{17}
+\contentsline {subsection}{\numberline {2.3.2}What to do with data, once we got them}{18}
+\contentsline {section}{\numberline {2.4}Automatic Procedures: Usefulness and Danger}{18}
+\contentsline {chapter}{\numberline {3}Data Types}{21}
+\contentsline {section}{\numberline {3.1}Standard Ultrasonic Anemometer Raw Data Files}{21}
+\contentsline {subsection}{\numberline {3.1.1}Mandatory Columns}{22}
+\contentsline {subsection}{\numberline {3.1.2}Optional Columns}{22}
+\contentsline {subsection}{\numberline {3.1.3}Time stamps in SonicLib raw data files}{22}
+\contentsline {section}{\numberline {3.2}The object type ``sonic.raw.data''}{24}
+\contentsline {section}{\numberline {3.3}The object type ``sonic.avg.data''}{24}
+\contentsline {section}{\numberline {3.4}The object type ``sonic.eddy.cov.data''}{30}
+\contentsline {section}{\numberline {3.5}The object type ``sonic.wind.power.data''}{39}
+\contentsline {section}{\numberline {3.6}The object type ``dir.stat''}{46}
+\contentsline {chapter}{\numberline {4}Data Sets}{49}
+\contentsline {section}{\numberline {4.1}CRA.01}{49}
+\contentsline {subsection}{\numberline {4.1.1}Data collection site}{49}
+\contentsline {subsection}{\numberline {4.1.2}Meteorological context of data set period}{49}
+\contentsline {subsection}{\numberline {4.1.3}Instrument configuration}{49}
+\contentsline {subsection}{\numberline {4.1.4}Data preparation}{50}
+\contentsline {subsection}{\numberline {4.1.5}Where to find prepared data}{50}
+\contentsline {section}{\numberline {4.2}UNIMI.Short.Mast and UNIMI.Long.Mast}{50}
+\contentsline {subsection}{\numberline {4.2.1}Data collection site}{50}
+\contentsline {subsection}{\numberline {4.2.2}Meteorological context}{50}
+\contentsline {subsection}{\numberline {4.2.3}Instrument configuration}{50}
+\contentsline {subsection}{\numberline {4.2.4}Data preparation}{50}
+\contentsline {subsection}{\numberline {4.2.5}Where to find prepared data}{50}
+\contentsline {section}{\numberline {4.3}AMERIFLUX gold standard files, open-path part}{50}
+\contentsline {subsection}{\numberline {4.3.1}Data collection site}{50}
+\contentsline {subsection}{\numberline {4.3.2}Meteorological context}{50}
+\contentsline {subsection}{\numberline {4.3.3}Instrument configuration}{50}
+\contentsline {subsection}{\numberline {4.3.4}Data preparation}{50}
+\contentsline {subsection}{\numberline {4.3.5}Where to find prepared data}{50}
+\contentsline {chapter}{\numberline {5}Converters}{51}
+\contentsline {section}{\numberline {5.1}Converting from SLT form}{51}
+\contentsline {subsection}{\numberline {5.1.1}The SLT conversion specification file}{52}
+\contentsline {section}{\numberline {5.2}Converting from Meteoflux Core V1.0}{52}
+\contentsline {section}{\numberline {5.3}Converting from Meteoflux Core V2.0}{52}
+\contentsline {section}{\numberline {5.4}Converting from old Meteoflux V3.x}{52}
+\contentsline {section}{\numberline {5.5}Converting from LabVIEW-made data acquisition systems}{52}
+\contentsline {subsection}{\numberline {5.5.1}Little- and high-endianness}{52}
+\contentsline {subsection}{\numberline {5.5.2}Endianness in LabVIEW is fixed}{52}
+\contentsline {subsection}{\numberline {5.5.3}Long (32 bit) and short (16 bit) data forms from Servizi Territorio}{52}
+\contentsline {section}{\numberline {5.6}Converting from GRIFO form}{52}
+\contentsline {chapter}{\numberline {6}Data Gathering and Preparation}{53}
+\contentsline {section}{\numberline {6.1}Read Single Standard Ultrasonic Anemometer Raw Data File}{53}
+\contentsline {subsection}{\numberline {6.1.1}Function Use}{53}
+\contentsline {subsection}{\numberline {6.1.2}Examples}{54}
+\contentsline {subsection}{\numberline {6.1.3}Notes}{54}
+\contentsline {section}{\numberline {6.2}Read Multiple Standard Ultrasonic Anemometer Raw Data Files}{56}
+\contentsline {subsection}{\numberline {6.2.1}Function Use}{56}
+\contentsline {subsection}{\numberline {6.2.2}Examples}{56}
+\contentsline {subsection}{\numberline {6.2.3}Notes}{57}
+\contentsline {section}{\numberline {6.3}Extract Subset from a Standard Ultrasonic Anemometer Data Set}{57}
+\contentsline {section}{\numberline {6.4}Average Data from a Single Raw Data File}{57}
+\contentsline {subsection}{\numberline {6.4.1}Function Use}{57}
+\contentsline {subsection}{\numberline {6.4.2}Time stamps: needed or not in data files?}{58}
+\contentsline {subsection}{\numberline {6.4.3}Wind speed: many definitions}{59}
+\contentsline {subsection}{\numberline {6.4.4}Standard deviation of the wind direction}{59}
+\contentsline {subsection}{\numberline {6.4.5}Trend removal}{60}
+\contentsline {subsection}{\numberline {6.4.6}Spike detection and processing}{61}
+\contentsline {subsection}{\numberline {6.4.7}Examples}{64}
+\contentsline {subsubsection}{Simple data averaging}{64}
+\contentsline {subsubsection}{Using different delays for different variables}{64}
+\contentsline {subsection}{\numberline {6.4.8}Notes}{64}
+\contentsline {section}{\numberline {6.5}Average Data from Multiple Raw Data Files}{65}
+\contentsline {subsection}{\numberline {6.5.1}Function Use}{65}
+\contentsline {subsection}{\numberline {6.5.2}Troubleshooting hints}{66}
+\contentsline {subsubsection}{Message average.sonic.file.set:: Error: No CSV files in directory}{67}
+\contentsline {subsubsection}{Message average.sonic.data:: error: Argument 'delay' is not a member of an instance of class ``delay.spec``}{67}
+\contentsline {subsubsection}{Messages average.sonic.data:: error: Averaging time is not a multiple of 5 minutes, average.sonic.data:: error: Averaging time is not a divisor of 60 minutes, Message average.sonic.data:: error: Averaging time is not between 10 and 60 minutes}{67}
+\contentsline {subsubsection}{Message get.raw.data:: Error: No columns in input data}{68}
+\contentsline {subsubsection}{Message get.raw.data:: Error: Number of data inconsistent with the expected number}{68}
+\contentsline {subsubsection}{Message get.raw.data:: Error: No 'u', 'v', 'w' or 't' data in file}{68}
+\contentsline {subsection}{\numberline {6.5.3}Examples}{69}
+\contentsline {subsubsection}{Averaging data ``acritically''}{69}
+\contentsline {subsubsection}{Preliminary assessment of data quality}{69}
+\contentsline {subsection}{\numberline {6.5.4}Notes}{74}
+\contentsline {chapter}{\numberline {7}Analyzing Data}{75}
+\contentsline {section}{\numberline {7.1}Spectral Analysis}{75}
+\contentsline {section}{\numberline {7.2}Multiresolution Analysis}{75}
+\contentsline {subsection}{\numberline {7.2.1}Background}{75}
+\contentsline {subsection}{\numberline {7.2.2}Multi-scale decomposition of a time-stamped data sequence}{76}
+\contentsline {subsubsection}{Timed sequences}{76}
+\contentsline {subsubsection}{Interval induced partitions}{77}
+\contentsline {subsubsection}{Temporal scales and temporal scales sequences}{77}
+\contentsline {subsubsection}{Partition statistics of a timed sequence}{78}
+\contentsline {subsubsection}{Scale approximations to a timed sequence}{79}
+\contentsline {subsubsection}{The vector space of timed sequences}{79}
+\contentsline {subsubsection}{The residual of the scale approximation to a timed sequence}{79}
+\contentsline {subsubsection}{Multi-scale decomposition of a timed sequence}{80}
+\contentsline {subsubsection}{Basic properties of multi-scale decomposition}{81}
+\contentsline {paragraph}{Orthogonality}{81}
+\contentsline {paragraph}{Independence from time spacing}{81}
+\contentsline {paragraph}{Convergence of decomposition to the original signal}{82}
+\contentsline {paragraph}{Sequential compatibility with Reynolds postulates}{82}
+\contentsline {subparagraph}{Some auxiliary formalism}{82}
+\contentsline {subparagraph}{Involutory character on a time scale and all time scales preceding it}{83}
+\contentsline {subparagraph}{Vector space compatibility of scale approximation}{83}
+\contentsline {subparagraph}{Involutory property to cumulant scale approximations}{84}
+\contentsline {subparagraph}{The fourth Reynolds postulate}{84}
+\contentsline {subsubsection}{Variance spectrum in multi-scale decomposition}{85}
+\contentsline {paragraph}{The mean and variance of a timed sequence}{85}
+\contentsline {paragraph}{Mean and variance of a scale approximation}{85}
+\contentsline {paragraph}{Multi-scale decomposition of variance}{86}
+\contentsline {subsection}{\numberline {7.2.3}Examples}{87}
+\contentsline {subsubsection}{Assessing turbulence scales}{87}
+\contentsline {subsubsection}{Assessing concentration variability}{87}
+\contentsline {subsubsection}{Detecting non-stationarity}{92}
+\contentsline {subsubsection}{Turbulent kinetic energy}{96}
+\contentsline {section}{\numberline {7.3}Checking Average Plausibility}{101}
+\contentsline {chapter}{\numberline {8}Giving Data a Meaning}{105}
+\contentsline {section}{\numberline {8.1}Eddy Covariance}{105}
+\contentsline {subsection}{\numberline {8.1.1}Preliminary estimates}{106}
+\contentsline {subsubsection}{Pressure and dry air density}{106}
+\contentsline {subsubsection}{$\rho C_{p}$}{107}
+\contentsline {subsection}{\numberline {8.1.2}Axis rotation}{107}
+\contentsline {subsubsection}{Classical eddy covariance}{107}
+\contentsline {paragraph}{First two rotations}{107}
+\contentsline {paragraph}{Third rotation}{108}
+\contentsline {subsubsection}{Planar fit}{109}
+\contentsline {subsection}{\numberline {8.1.3}Scalar fluxes and the WPL correction}{110}
+\contentsline {subsection}{\numberline {8.1.4}Sensible heat fluxes $H_{0v}$ and $H_{0}$}{111}
+\contentsline {subsection}{\numberline {8.1.5}Latent heat flux $H_{e}$}{112}
+\contentsline {subsection}{\numberline {8.1.6}Examples}{112}
+\contentsline {subsubsection}{Classical eddy covariance ``the normal way''}{112}
+\contentsline {subsubsection}{A bit of sane skepticism}{120}
+\contentsline {subsubsection}{Non-stationarity, rotation angles and very strange results}{126}
+\contentsline {subsubsection}{Removing linear trends}{127}
+\contentsline {subsubsection}{Comparing the horizontal and vertical sigmas}{133}
+\contentsline {subsection}{\numberline {8.1.7}A caveat: intrinsic limitations of eddy covariance}{133}
+\contentsline {section}{\numberline {8.2}Ultrasonic anemometry for wind power plants}{137}
+\contentsline {subsection}{\numberline {8.2.1}Introduction}{137}
+\contentsline {subsection}{\numberline {8.2.2}The function ''wind.power''}{138}
+\contentsline {subsection}{\numberline {8.2.3}Wind power specific quantities, and how they are computed in SonicLib}{139}
+\contentsline {subsubsection}{Mean and total power}{140}
+\contentsline {subsubsection}{Turbulence intensity}{141}
+\contentsline {subsubsection}{Angle of wind to the horizontal plane}{141}
+\contentsline {subsubsection}{Friction velocity}{141}
+\contentsline {subsubsection}{Wind direction}{142}
+\contentsline {subsubsection}{Rotation angles}{143}
+\contentsline {subsection}{\numberline {8.2.4}Preparing data for ``wind.power''}{143}
+\contentsline {subsection}{\numberline {8.2.5}Examples}{143}
+\contentsline {subsubsection}{Economical feasibility}{143}
+\contentsline {subsubsection}{Is wind speed really Weibull-distributed?}{148}
+\contentsline {subsubsection}{Why Weibull?}{149}
+\contentsline {chapter}{\numberline {9}Visualizing Data and Their Structure}{151}
+\contentsline {section}{\numberline {9.1}Plotting data the simple way}{151}
+\contentsline {subsection}{\numberline {9.1.1}Example: Understanding non-stationarity with time domain plots}{151}
+\contentsline {subsection}{\numberline {9.1.2}Visualizing directional dependencies using R as it is}{159}
+\contentsline {section}{\numberline {9.2}SonicLib-specific Plots and Related Functions}{162}
+\contentsline {subsection}{\numberline {9.2.1}Function dir.mean}{162}
+\contentsline {subsubsection}{Function use}{162}
+\contentsline {subsubsection}{Separate or overlapping sectors?}{163}
+\contentsline {subsubsection}{Confidence intervals}{163}
+\contentsline {subsubsection}{Examples}{164}
+\contentsline {subsection}{\numberline {9.2.2}Function plot.dir.mean}{165}
+\contentsline {subsubsection}{Function use}{165}
+\contentsline {subsubsection}{How to select minimum and maximum values}{165}
+\contentsline {subsubsection}{Examples}{166}
+\contentsline {subsection}{\numberline {9.2.3}Function plot.dir.num}{169}
+\contentsline {subsubsection}{Function use}{169}
+\contentsline {subsubsection}{Examples}{169}
+\contentsline {section}{\numberline {9.3}Using statistics}{169}
+\contentsline {subsubsection}{Which direction is wind blowing from?}{171}
+\contentsline {subsubsection}{Short-range pollutant dispersion}{171}
+\contentsline {chapter}{\numberline {10}Auxiliary. But no less useful!}{173}
+\contentsline {section}{\numberline {10.1}Giving time a meaning}{173}
+\contentsline {subsection}{\numberline {10.1.1}Generating time sequences}{173}
+\contentsline {subsection}{\numberline {10.1.2}Building higher-level time stamps}{174}
+\contentsline {subsubsection}{Function 'floor.day'}{174}
+\contentsline {paragraph}{Avoiding repetitions}{174}
+\contentsline {subsubsection}{Function 'floor.year'}{175}
+\contentsline {subsubsection}{Moving time forth and back}{175}
+\contentsline {subsection}{\numberline {10.1.3}Computing time-related indexes}{176}
+\contentsline {subsubsection}{Function 'julian.day'}{176}
+\contentsline {subsubsection}{Function 'year.number'}{177}
+\contentsline {subsubsection}{Function 'month.number'}{177}
+\contentsline {subsubsection}{Function 'day.in.year'}{177}
+\contentsline {subsubsection}{Function 'step.in.day'}{177}
+\contentsline {subsection}{\numberline {10.1.4}Forming typical years, days, and more}{177}

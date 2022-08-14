@@ -1,0 +1,65 @@
+\begin{thebibliography}{10}
+
+\bibitem{VanDijk2004}
+{\em The principles of surface flux physics: theory, practice and description
+  of the ECPACK library}.
+
+\bibitem{Oke1978}
+{\em Boundary Layer Climates}.
+\newblock Routledge, 1978.
+
+\bibitem{Stull1988}
+{\em An Introduction to Boundary Layer Meteorology}.
+\newblock Kluwer, 1988.
+
+\bibitem{Kaimal1994}
+{\em Atmospheric boundary layer flows}.
+\newblock Oxford University Press, 1994.
+
+\bibitem{Helgesen1995}
+{\em The Web of Inclusion}.
+\newblock Doubleday Business, 1995.
+
+\bibitem{Arya2001}
+{\em Introduction to Micrometeorology}.
+\newblock Academic Press, 2001.
+
+\bibitem{Valentini2002}
+{\em Fluxes of Carbon, Water and Energy of European Forest}.
+\newblock Springer, 2002.
+
+\bibitem{Sozzi2002}
+{\em Introduzione alla turbolenza atmosferica - Concetti, stime, misure}.
+\newblock Pitagora Editrice, 2002.
+
+\bibitem{Waring2007}
+{\em Forest Ecosystems - Analysis at Multiple Scales}.
+\newblock Elsevier, 2007.
+
+\bibitem{Foken2008}
+{\em Micrometeorology}.
+\newblock Springer, 2008.
+
+\bibitem{Nobel2009}
+{\em Physicochemical and Environmental Plant Physiology}.
+\newblock Academic Press, 2009.
+
+\bibitem{Leeder2011}
+{\em Sedimentology and Sedimentary Basins - From Turbulence to Tectonics}.
+\newblock Wiley-Blackwell, 2011.
+
+\bibitem{Aubinet2012}
+{\em Eddy Covariance - A Practical Guide to Measurement and Data Analysis}.
+\newblock Springer, 2012.
+
+@Article{Vickers1997,
+ author = {D. Vickers \and L. Mahrt},
+ title = {Quality control and flux sampling problems for tower and aircraft data},
+ journal = {J Atmos Ocean Technol},
+ year = {1997},
+ OPTvolume = {14},
+ OPTpages = {512-526},
+}
+
+
+\end{thebibliography}

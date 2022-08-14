@@ -1,0 +1,182 @@
+\begin{thebibliography}{10}
+
+\bibitem{Barth2002}
+Multiscale and multiresolution methods: Theory and application.
+
+\bibitem{VanDijk2004}
+{\em The principles of surface flux physics: theory, practice and description
+  of the ECPACK library}.
+
+\bibitem{Helgesen1995}
+{\em The Web of Inclusion}.
+\newblock Doubleday Business, 1995.
+
+\bibitem{Percival2000}
+D.B.~Percival \and A.T.~Walden.
+\newblock {\em Wavelet Methods for Time Series Analysis}.
+\newblock Cambridge University Press, 2000.
+
+\bibitem{Foken1996}
+T.~Foken \and B.~Wichura.
+\newblock Tools for quality assessment of surface-based flux measurements.
+\newblock {\em Agric For Meteorol}, 1996.
+
+\bibitem{Venables2000}
+W.N.~Venables \and B.D.~Ripley.
+\newblock {\em S Programming}.
+\newblock Springer, 2000.
+
+\bibitem{Venables2002}
+W.N.~Venables \and B.D.~Ripley.
+\newblock {\em Modern Applied Statistics with S}.
+\newblock Springer, 2002.
+
+\bibitem{Aubinet2010}
+M.~Aubinet \and C. Feigenwinter \and B. Heinesch \and C. Bernhofer \and E.
+  Canepa \and A. Lindroth \and L. Montagnani \and C. Rebmann \and P.
+  Sedlak~\and E.~Van~Gorsel.
+\newblock Direct advection measurements do not help to solve the night-time
+  $\mbox{CO}_{2}$ closure problem: Evidence from three different forests.
+\newblock {\em Agric For Meteorol}, 2010.
+
+\bibitem{Sakai2001}
+R.K.~Sakai \and D.R. Fitzjarrald~\and K.E.~Moore.
+\newblock Importance of low-frequency contributions to eddy fluxes observed
+  over rough surfaces.
+\newblock {\em J Appl Meteorol}, 2001.
+
+\bibitem{Canepa2010}
+E.~Canepa \and E. Georgieva \and G. Manca~\and C.~Feigenwinter.
+\newblock Application of a mass consistent flow model to study the
+  $\mbox{CO}_{2}$ mass balance of forests.
+\newblock {\em Agric For Meteorol}, 2010.
+
+\bibitem{Schotanus1983}
+P.~Schotanus \and F.T.M. Nieuwstadt~\and H.A.R. De~Bruin.
+\newblock Temperature measurement with a sonic anemometer and its application
+  to heat and moisture flux.
+\newblock {\em Bound Layer Meteorol}, 1983.
+
+\bibitem{Montagnani2010}
+L.~Montagnani \and G. Manca \and E. Canepa~\and E.~Georgieva.
+\newblock Assessing the method-specific differences in quantification of
+  $\mbox{CO}_{2}$ advection at three forest sites during the advex campaign.
+\newblock {\em Agric For Meteorol}, 2010.
+
+\bibitem{Webb1980}
+E.K.~Webb \and G.I. Pearman~\and R.~Leuning.
+\newblock Correction of the flux measurements for density effects due to heat
+  and water vapour transfer.
+\newblock {\em Q J R Meteorol Soc}, 1980.
+
+\bibitem{Ferreira2007}
+M.A.R.~Ferreira \and H.K.H.~Lee.
+\newblock {\em Multiscale Modeling: A Bayesian Approach}.
+\newblock Springer, 2007.
+
+\bibitem{Maindonald2007}
+J.~Maindonald \and J.~Braun.
+\newblock {\em Data Analysis and Graphics Using R - An Example-Based Approach}.
+\newblock Cambridge University Press, 2007.
+
+\bibitem{Kaimal1991}
+J.C.~Kaimal \and J.E.~Gaynor.
+\newblock Another look at sonic anemometry.
+\newblock {\em Bound Layer Meteorol}, 1991.
+
+\bibitem{Kaimal1994}
+J.C.~Kaimal \and J.J.~Finnigan.
+\newblock {\em Atmospheric boundary layer flows}.
+\newblock Oxford University Press, 1994.
+
+\bibitem{Vickers1997}
+D.~Vickers \and L.~Mahrt.
+\newblock Quality control and flux sampling problems for tower and aircraft
+  data.
+\newblock {\em J Atmos Ocean Technol}, 1997.
+
+\bibitem{Howell1997}
+J.F.~Howell \and L.~Mahrt.
+\newblock Multiresolution flux decomposition.
+\newblock {\em Bound Layer Meteorol}, 1997.
+
+\bibitem{Chorin2006}
+A.J.~Chorin \and O.H.~Hald.
+\newblock {\em Stochastic Tools in Mathematics and Science}.
+\newblock Springer, 2006.
+
+\bibitem{Waring2007}
+R.H.~Waring \and S.W.~Running.
+\newblock {\em Forest Ecosystems - Analysis at Multiple Scales}.
+\newblock Elsevier, 2007.
+
+\bibitem{Sozzi2002}
+R.~Sozzi \and T. Georgiadis~\and M.~Valentini.
+\newblock {\em Introduzione alla turbolenza atmosferica - Concetti, stime,
+  misure}.
+\newblock Pitagora Editrice, 2002.
+
+\bibitem{Aubinet2012}
+M.~Aubinet \and T. Vesala~\and D.~Papale, editor.
+\newblock {\em Eddy Covariance - A Practical Guide to Measurement and Data
+  Analysis}.
+\newblock Springer, 2012.
+
+\bibitem{Arya2001}
+S.P. Arya.
+\newblock {\em Introduction to Micrometeorology}.
+\newblock Academic Press, 2001.
+
+\bibitem{Foken2008}
+T.~Foken.
+\newblock {\em Micrometeorology}.
+\newblock Springer, 2008.
+
+\bibitem{Garratt1992}
+J.R. Garratt.
+\newblock {\em The Atmospheric Boundary Layer}.
+\newblock Cambridge University Press, 1992.
+
+\bibitem{Klebaner2005}
+F.C. Klebaner.
+\newblock {\em Introduction to Stochastic Calculus with Applications}.
+\newblock Imperial College Press, 2005.
+
+\bibitem{Leeder2011}
+M.~Leeder.
+\newblock {\em Sedimentology and Sedimentary Basins - From Turbulence to
+  Tectonics}.
+\newblock Wiley-Blackwell, 2011.
+
+\bibitem{Murrell2006}
+P.~Murrell.
+\newblock {\em R Graphics}.
+\newblock Chapman \& Hall, 2006.
+
+\bibitem{Nobel2009}
+P.S. Nobel.
+\newblock {\em Physicochemical and Environmental Plant Physiology}.
+\newblock Academic Press, 2009.
+
+\bibitem{Oke1978}
+T.R. Oke.
+\newblock {\em Boundary Layer Climates}.
+\newblock Routledge, 1978.
+
+\bibitem{RManual}
+{R Development Core Team}.
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2011.
+\newblock {ISBN} 3-900051-07-0.
+
+\bibitem{Stull1988}
+R.B. Stull.
+\newblock {\em An Introduction to Boundary Layer Meteorology}.
+\newblock Kluwer, 1988.
+
+\bibitem{Valentini2002}
+R.~Valentini, editor.
+\newblock {\em Fluxes of Carbon, Water and Energy of European Forest}.
+\newblock Springer, 2002.
+
+\end{thebibliography}

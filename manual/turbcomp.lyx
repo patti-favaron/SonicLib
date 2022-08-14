@@ -1,0 +1,249 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Computational Tools for Atmospheric Turbulence
+\end_layout
+
+\begin_layout Section*
+Foreword
+\end_layout
+
+\begin_layout Standard
+The study of turbulence in the Earth atmosphere has many important applications,
+ from air quality to agriculture.
+ Available data abound to date, as ultrasonic anemometers find more and
+ more use in both measurement campaigns and fixed stations.
+ As data accumulate, so does the need of getting sense from them.
+\end_layout
+
+\begin_layout Standard
+By their nature, ultrasonic anemometer data are quite massive.
+ In many case data acquisition rate is higher than or equal to 10 Hz, meaning
+ at least 36000 data packets per hour.
+ All this mass of information demands quite a bit of computational work
+ to get a useful synthesis.
+ Which 
+\emph on
+type
+\emph default
+ of computational work, however?
+\end_layout
+
+\begin_layout Standard
+Experiences made all over the world in last years suggest the data analysis
+ involved in atmospheric turbulence tends to be interactive, with exploration
+ intertwined with more definitive processing steps.
+\end_layout
+
+\begin_layout Standard
+Many excellent libraries and tools exist to date supporting the analysis
+ of ultrasonic anemometer data (among them, with no claim of exhaustiveness,
+ the EdiRe package, or AltEddy program, or ECpack library).
+ We found them all extremely powerful and inspiring, yet difficult to use
+ them for our purpose: teaching and learning analysis of turbulence data
+ (and not only eddy covariance, on which most of the software available
+ tend to focus).
+\end_layout
+
+\begin_layout Standard
+We then tried to build our own tools, starting quite informally with a collectio
+n of R and Fortran modules, collected under the name of 
+\begin_inset Quotes eld
+\end_inset
+
+SonicLib
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Humbly, we stand on the shoulders of the giants who preceded us - and just
+ try to make instruments easier to use.
+\end_layout
+
+\begin_layout Standard
+In the meanwhile it may be worth - and not irrelevant to this work - mentioning
+ who 
+\begin_inset Quotes eld
+\end_inset
+
+we
+\begin_inset Quotes erd
+\end_inset
+
+ are: students, teachers and other people within the Lab Course on Environmental
+ Physics at University of Milan.
+ The fact this effort has involved students directly has much to do with
+ how we feel experimental physics is: a knowledge building process.
+\end_layout
+
+\begin_layout Standard
+This is true of the subject in itself, as turbulence in the lower atmosphere
+ is undergoing quick evolution.
+ But also applies to the process of 
+\begin_inset Quotes eld
+\end_inset
+
+study
+\begin_inset Quotes erd
+\end_inset
+
+: the subject badly adapts to traditional ways of imparting established
+ knowledge from top, so that students 
+\begin_inset Quotes eld
+\end_inset
+
+have to
+\begin_inset Quotes erd
+\end_inset
+
+ build their own knowledge interacting actively with the subject, by formulating
+ hypotheses, testing them, and establishing connections among the various
+ parts and with the remaining of natural world.
+\end_layout
+
+\begin_layout Standard
+This of course does not mean tests and examinations are not necessary.
+ On the contrary.
+ But on the other side, if a student has decided to join the Lab fully realizing
+ the possible difficulties then s/he is already 
+\begin_inset Quotes eld
+\end_inset
+
+in
+\begin_inset Quotes erd
+\end_inset
+
+, if not in experience, then at least in passion.
+ 
+\end_layout
+
+\begin_layout Standard
+All that said, we add the subject of atmospheric turbulence is in itself
+ highly mathematical.
+ The methods under common use resemble in their phylosophy data mining,
+ in their use of demanding tools on very large datasets, drawing meanwhile
+ core ideas from the theory of stochastic processes, fluid dynamics, determinist
+ic chaos, and other respectable beasts.
+ All we may 
+\begin_inset Quotes eld
+\end_inset
+
+discover
+\begin_inset Quotes erd
+\end_inset
+
+ using these complex tools should be critically assessed every time, the
+ danger of overmathing being all but light.
+ In addition, however complex our methods may be, we should always be able
+ to explain results to a community in which physicists and mathematicians
+ are just one, and possibly minority, component.
+ We admit things can be quite complicate on times - but we .
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Section
+Trend Identification and Removal
+\end_layout
+
+\begin_layout Section
+Spectra and Cospectra
+\end_layout
+
+\begin_layout Subsection
+What 
+\begin_inset Quotes eld
+\end_inset
+
+spectrum
+\begin_inset Quotes erd
+\end_inset
+
+ means in the context of turbulence studies
+\end_layout
+
+\begin_layout Standard
+By 
+\begin_inset Quotes eld
+\end_inset
+
+spectrum
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

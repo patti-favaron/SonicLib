@@ -1,0 +1,1293 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.8)  12 APR 2013 09:55
+entering extended mode
+**SonicLib.tex
+(C:\Users\Mauri\Documents\Research\SonicLib\manual\SonicLib.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\bk10.clo"
+File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\utf8x.def"
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucs.sty"
+Package: ucs 2004/10/17 UCS: Unicode input support
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-global.def"
+File: uni-global.def 2012/08/28 UCS: Unicode global data
+)
+\uc@secondtry=\count88
+\uc@combtoks=\toks16
+\uc@combtoksb=\toks17
+\uc@temptokena=\toks18
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count89
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks20
+\ex@=\dimen105
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen106
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count90
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count91
+\leftroot@=\count92
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count93
+\DOTSCASE@=\count94
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen107
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count95
+\c@MaxMatrixCols=\count96
+\dotsspace@=\muskip10
+\c@parentequation=\count97
+\dspbrk@lvl=\count98
+\tag@help=\toks21
+\row@=\count99
+\column@=\count100
+\maxfields@=\count101
+\andhelp@=\toks22
+\eqnshift@=\dimen108
+\alignsep@=\dimen109
+\tagshift@=\dimen110
+\tagwidth@=\dimen111
+\totwidth@=\dimen112
+\lineht@=\dimen113
+\@envbody=\toks23
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2009/06/22 v3.00
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\latexsym.sty"
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(C:\Users\Mauri\Documents\Research\SonicLib\manual\SonicLib.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucsencs.def"
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count102
+\scratchdimen=\dimen114
+\scratchbox=\box28
+\nofMPsegments=\count103
+\nofMParguments=\count104
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count105
+\MPscratchDim=\dimen115
+\MPnumerator=\count106
+\makeMPintoPDFobject=\count107
+\everyMPtoPDFconversion=\toks26
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 13.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 13.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 13.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+) [1
+
+
+{C:/Users/Mauri/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
+
+]
+(C:\Users\Mauri\Documents\Research\SonicLib\manual\SonicLib.toc [3] [4])
+\tf@toc=\write3
+
+[5] [6
+
+]
+Chapter 1.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 32.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
+ [7] [8] [9] [10]
+[11] [12
+
+]
+Chapter 2.
+[13] [14]
+Overfull \hbox (20.97142pt too wide) in paragraph at lines 202--203
+\OT1/cmr/m/n/10 the Sec-ond Capoc-ac-cia 2012 Cam-paign in di-rec-tory []\OT1/c
+mtt/m/n/10 /raw/Capocaccia/2012/Second\OT1/cmr/m/n/10 .
+ []
+
+
+Overfull \hbox (79.05446pt too wide) in paragraph at lines 202--203
+\OT1/cmr/m/n/10 We first de-cide the con-verted data will be in (say) di-rec-to
+ry []\OT1/cmtt/m/n/10 /datasets/Capocaccia/2012/Second\OT1/cmr/m/n/10 ,
+ []
+
+[15]
+Overfull \hbox (63.49895pt too wide) in paragraph at lines 210--211
+\OT1/cmr/m/n/10 se-quen-tially, in the right time or-der, all Son-i-cLib files 
+in []\OT1/cmtt/m/n/10 /datasets/Capocaccia/2012/Second\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (34.22166pt too wide) in paragraph at lines 216--217
+[]\OT1/cmr/m/n/10 As most in-ter-me-di-ate re-sults in Son-i-cLib, the out-put 
+from []\OT1/cmtt/m/n/10 average.sonic.file.set
+ []
+
+[16] [17]
+Overfull \hbox (2.1514pt too wide) in paragraph at lines 288--288
+[]\OT1/cmr/bx/n/14.4 Automatic Pro-ce-dures: Use-ful-ness and Dan-
+ []
+
+[18] [19] [20]
+Chapter 3.
+
+Overfull \hbox (0.998pt too wide) in paragraph at lines 329--329
+[]\OT1/cmr/bx/n/14.4 Standard Ul-tra-sonic Anemome-ter Raw Data
+ []
+
+[21
+
+] [22] [23]
+Overfull \hbox (8.1655pt too wide) in paragraph at lines 441--442
+\OT1/cmr/m/n/10 Objects of type []\OT1/cmtt/m/n/10 sonic.avg.data \OT1/cmr/m/n/
+10 are cre-ated us-ing func-tion []\OT1/cmtt/m/n/10 average.sonic.data\OT1/cmr/
+m/n/10 .
+ []
+
+
+Overfull \hbox (38.16748pt too wide) in paragraph at lines 448--449
+[]\OT1/cmr/m/n/10 Nominal sam-pling rate, as com-ing from the data ob-ject []\O
+T1/cmtt/m/n/10 sonic.raw.data
+ []
+
+[24] [25] [26] [27] [28]
+Overfull \hbox (36.79951pt too wide) in paragraph at lines 546--547
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of sonic tem-per-a-ture (present only 
+if []\OT1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (11.67447pt too wide) in paragraph at lines 548--549
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of wa-ter va-por (present only if []\O
+T1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (28.6049pt too wide) in paragraph at lines 549--550
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of wa-ter va-por (present only if []\O
+T1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (22.91063pt too wide) in paragraph at lines 550--551
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of car-bon diox-ide (present only if [
+]\OT1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (39.84106pt too wide) in paragraph at lines 551--552
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of car-bon diox-ide (present only if [
+]\OT1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (0.30641pt too wide) in paragraph at lines 552--553
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of am-mo-nia (present only if []\OT1/c
+mtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (17.23685pt too wide) in paragraph at lines 553--554
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of am-mo-nia (present only if []\OT1/c
+mtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (1.52165pt too wide) in paragraph at lines 554--555
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of methane (present only if []\OT1/cmt
+t/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (18.45209pt too wide) in paragraph at lines 555--556
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of methane (present only if []\OT1/cmt
+t/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (34.09799pt too wide) in paragraph at lines 556--557
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of tem-per-a-ture (present only if []\
+OT1/cmtt/m/n/10 trend.removal
+ []
+
+[29]
+Overfull \hbox (6.80702pt too wide) in paragraph at lines 564--565
+[]\OT1/cmr/m/n/10 Number of spikes de-tected av-er-ag-ing wa-ter con-cen-tra-ti
+on (present
+ []
+
+
+Overfull \hbox (38.16748pt too wide) in paragraph at lines 582--583
+[]\OT1/cmr/m/n/10 Nominal sam-pling rate, as com-ing from the data ob-ject []\O
+T1/cmtt/m/n/10 sonic.raw.data
+ []
+
+[30]
+Overfull \hbox (6.7867pt too wide) in paragraph at lines 595--596
+[]\OT1/cmr/m/n/10 A string, whose value may be ``eddy.covariance'', ``eddy.cova
+riance.3''
+ []
+
+[31] [32] [33] [34] [35]
+Overfull \hbox (36.79951pt too wide) in paragraph at lines 692--693
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of sonic tem-per-a-ture (present only 
+if []\OT1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (11.67447pt too wide) in paragraph at lines 694--695
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of wa-ter va-por (present only if []\O
+T1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (28.6049pt too wide) in paragraph at lines 695--696
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of wa-ter va-por (present only if []\O
+T1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (22.91063pt too wide) in paragraph at lines 696--697
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of car-bon diox-ide (present only if [
+]\OT1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (39.84106pt too wide) in paragraph at lines 697--698
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of car-bon diox-ide (present only if [
+]\OT1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (0.30641pt too wide) in paragraph at lines 698--699
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of am-mo-nia (present only if []\OT1/c
+mtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (17.23685pt too wide) in paragraph at lines 699--700
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of am-mo-nia (present only if []\OT1/c
+mtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (1.52165pt too wide) in paragraph at lines 700--701
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of methane (present only if []\OT1/cmt
+t/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (18.45209pt too wide) in paragraph at lines 701--702
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of methane (present only if []\OT1/cmt
+t/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (34.09799pt too wide) in paragraph at lines 702--703
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of tem-per-a-ture (present only if []\
+OT1/cmtt/m/n/10 trend.removal
+ []
+
+[36]
+Overfull \hbox (6.80702pt too wide) in paragraph at lines 710--711
+[]\OT1/cmr/m/n/10 Number of spikes de-tected av-er-ag-ing wa-ter con-cen-tra-ti
+on (present
+ []
+
+
+Overfull \hbox (47.55629pt too wide) in paragraph at lines 716--717
+\OT1/cmr/m/n/10 (this pa-ram-e-ter is present only if mode == ``eddy.covariance
+'' or ``eddy.covariance.3''). 
+ []
+
+
+Overfull \hbox (47.55629pt too wide) in paragraph at lines 717--718
+\OT1/cmr/m/n/10 (this pa-ram-e-ter is present only if mode == ``eddy.covariance
+'' or ``eddy.covariance.3''). 
+ []
+
+
+Overfull \hbox (21.38957pt too wide) in paragraph at lines 718--719
+\OT1/cmr/m/n/10 pa-ram-e-ter is present only if mode == ``eddy.covariance'' or 
+``eddy.covariance.3'';
+ []
+
+[37] ("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-0.def"
+File: uni-0.def 2012/08/28 UCS: Unicode data U+0000..U+00FF
+)
+Overfull \hbox (1.51431pt too wide) in paragraph at lines 728--729
+[]\OT1/cmr/m/n/10 Covariance be-tween $\OML/cmm/m/it/10 u$ \OT1/cmr/m/n/10 and 
+$\OML/cmm/m/it/10 w$ \OT1/cmr/m/n/10 wind com-po-nents in ro-tated frame ($[][]
+\OML/cmm/m/it/10 =[][]$\OT1/cmr/m/n/10 ). 
+ []
+
+
+Overfull \hbox (0.99574pt too wide) in paragraph at lines 730--731
+[]\OT1/cmr/m/n/10 Covariance be-tween $\OML/cmm/m/it/10 v$ \OT1/cmr/m/n/10 and 
+$\OML/cmm/m/it/10 w$ \OT1/cmr/m/n/10 wind com-po-nents in ro-tated frame ($[][]
+\OML/cmm/m/it/10 =[][]$\OT1/cmr/m/n/10 ). 
+ []
+
+
+Overfull \hbox (5.45409pt too wide) in paragraph at lines 731--732
+[]\OT1/cmr/m/n/10 Covariance be-tween $\OML/cmm/m/it/10 w$ \OT1/cmr/m/n/10 and 
+$\OML/cmm/m/it/10 w$ \OT1/cmr/m/n/10 wind com-po-nents in ro-tated frame ($[][]
+\OML/cmm/m/it/10 =[][]$\OT1/cmr/m/n/10 ). 
+ []
+
+[38]
+Overfull \hbox (38.16748pt too wide) in paragraph at lines 770--771
+[]\OT1/cmr/m/n/10 Nominal sam-pling rate, as com-ing from the data ob-ject []\O
+T1/cmtt/m/n/10 sonic.raw.data
+ []
+
+[39] [40] [41] [42] [43]
+Overfull \hbox (36.79951pt too wide) in paragraph at lines 874--875
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of sonic tem-per-a-ture (present only 
+if []\OT1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (11.67447pt too wide) in paragraph at lines 876--877
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of wa-ter va-por (present only if []\O
+T1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (28.6049pt too wide) in paragraph at lines 877--878
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of wa-ter va-por (present only if []\O
+T1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (22.91063pt too wide) in paragraph at lines 878--879
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of car-bon diox-ide (present only if [
+]\OT1/cmtt/m/n/10 trend.removal
+ []
+
+[44]
+Overfull \hbox (39.84106pt too wide) in paragraph at lines 879--880
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of car-bon diox-ide (present only if [
+]\OT1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (0.30641pt too wide) in paragraph at lines 880--881
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of am-mo-nia (present only if []\OT1/c
+mtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (17.23685pt too wide) in paragraph at lines 881--882
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of am-mo-nia (present only if []\OT1/c
+mtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (1.52165pt too wide) in paragraph at lines 882--883
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of methane (present only if []\OT1/cmt
+t/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (18.45209pt too wide) in paragraph at lines 883--884
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of methane (present only if []\OT1/cmt
+t/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (34.09799pt too wide) in paragraph at lines 884--885
+[]\OT1/cmr/m/n/10 Slope of lin-ear trend of tem-per-a-ture (present only if []\
+OT1/cmtt/m/n/10 trend.removal
+ []
+
+
+Overfull \hbox (6.80702pt too wide) in paragraph at lines 892--893
+[]\OT1/cmr/m/n/10 Number of spikes de-tected av-er-ag-ing wa-ter con-cen-tra-ti
+on (present
+ []
+
+[45]
+Overfull \hbox (20.4584pt too wide) in paragraph at lines 908--909
+[]\OT1/cmr/m/n/10 Total power co-ef-fi-cient, com-puted on the whole three-dime
+nsional
+ []
+
+[46] [47] [48
+
+]
+Chapter 4.
+
+Overfull \hbox (7.69499pt too wide) in paragraph at lines 950--951
+\OT1/cmr/m/n/10 Data in CRA.01 set have been col-lected us-ing a Metek USA-1 ul
+-tra-sonic anemome-
+ []
+
+
+Overfull \hbox (10.12215pt too wide) in paragraph at lines 975--976
+[]$\OML/cmm/m/it/10 c$ \OT1/cmr/m/n/10 [$[]\OML/cmm/m/it/10 =[][]$\OT1/cmr/m/n/
+10 ] = $\OML/cmm/m/it/10 C \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 (32767\OML/cmm/m/
+it/10 =\OT1/cmr/m/n/10 10) \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 (20 \OMS/cmsy/m/n
+/10   \OT1/cmr/m/n/10 10)\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 5 + 10 = 0\OML/cmm/m
+/it/10 :\OT1/cmr/m/n/10 000610370\OML/cmm/m/it/10 C \OT1/cmr/m/n/10 +$
+ []
+
+[49]
+Overfull \hbox (2.66292pt too wide) in paragraph at lines 1002--1002
+[]\OT1/cmr/bx/n/14.4 AMERIFLUX gold stan-dard files, open-path
+ []
+
+[50]
+Chapter 5.
+[51
+
+] [52]
+Chapter 6.
+[53
+
+] <./diagrams/get_raw_data_1.pdf, id=183, 303.1325pt x 252.945pt>
+File: ./diagrams/get_raw_data_1.pdf Graphic file (type pdf)
+
+<use ./diagrams/get_raw_data_1.pdf>
+Package pdftex.def Info: ./diagrams/get_raw_data_1.pdf used on input line 1125.
+
+(pdftex.def)             Requested size: 333.44678pt x 278.24036pt.
+
+Overfull \hbox (17.32297pt too wide) in paragraph at lines 1152--1152
+[]\OT1/cmr/bx/n/14.4 Read Mul-ti-ple Stan-dard Ul-tra-sonic Anemome-
+ []
+
+[54]
+Overfull \hbox (43.99753pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 6.1.  READ SINGLE STANDARD ULTRASONIC ANEMOMETER RAW DATA FILE
+ \OT1/cmr/m/n/10 55
+ []
+
+[55 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/get_raw_data_1.
+pdf>]
+Overfull \hbox (80.24629pt too wide) in paragraph at lines 1185--1185
+[]\OT1/cmtt/m/n/10 > d <- get.multi.raw.data("../TestData/20100516.00.csv", n.h
+ours=4, verbose=TRUE)[] 
+ []
+
+[56]
+Overfull \hbox (195.74529pt too wide) in paragraph at lines 1193--1193
+[]\OT1/cmtt/m/n/10 > d <- get.multi.raw.data("../TestData/20100516.00.csv", n.h
+ours=4, average.by="seconds", verbose=TRUE)[] 
+ []
+
+
+Overfull \hbox (80.03816pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 6.3.  EXTRACT SUBSET FROM A STANDARD ULTRASONIC ANEMOMETER DAT
+A SET \OT1/cmr/m/n/10 57
+ []
+
+[57]
+Overfull \hbox (60.44373pt too wide) in paragraph at lines 1234--1235
+\OT1/cmr/m/n/10 thresh-old to be used for all chan-nels, or a struc-ture of typ
+e []\OT1/cmtt/m/n/10 spike.detection.threshold
+ []
+
+[58]
+Overfull \hbox (12.15579pt too wide) in paragraph at lines 1264--1265
+[]\OT1/cmr/m/n/10 The \OT1/cmr/m/it/10 hor-i-zon-tal \OT1/cmr/m/n/10 wind speed
+ is de-fined in a sim-i-lar man-ner than three-dimensional
+ []
+
+[59] [60] [61] [62]
+
+LaTeX Warning: Reference `Actual spike detection method' on page 63 undefined o
+n input line 1400.
+
+[63]
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 1427--1427
+[]\OT1/cmtt/m/n/10 > d.stat <- average.sonic.data(d, time.stamp.from.name(file.
+name))[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 1443--1443
+[]\OT1/cmtt/m/n/10 > d.stat <- average.sonic.data(d, time.stamp.from.name(file.
+name),[] 
+ []
+
+[64] [65]
+Overfull \hbox (60.44373pt too wide) in paragraph at lines 1507--1508
+\OT1/cmr/m/n/10 thresh-old to be used for all chan-nels, or a struc-ture of typ
+e []\OT1/cmtt/m/n/10 spike.detection.threshold
+ []
+
+[66]
+Overfull \hbox (75.24007pt too wide) in paragraph at lines 1534--1535
+\OT1/cmr/m/n/10 is con-cerned it's all right. The mes-sage is not emit-ted and,
+ as soon as []\OT1/cmtt/m/n/10 averaging.sonic.file.set
+ []
+
+[67]
+Overfull \hbox (38.96233pt too wide) in paragraph at lines 1579--1580
+\OT1/cmr/m/n/10 adopted (re-gard-less on trend re-moval state). The de-fault in
+ []\OT1/cmtt/m/n/10 averaging.sonic.file.set\OT1/cmr/m/n/10 ,
+ []
+
+[68] [69]
+<./diagrams/average_sonic_file_set_0.pdf, id=243, 303.1325pt x 252.945pt>
+File: ./diagrams/average_sonic_file_set_0.pdf Graphic file (type pdf)
+
+<use ./diagrams/average_sonic_file_set_0.pdf>
+Package pdftex.def Info: ./diagrams/average_sonic_file_set_0.pdf used on input 
+line 1652.
+(pdftex.def)             Requested size: 333.44678pt x 278.24036pt.
+
+<./diagrams/average_sonic_file_set_1.pdf, id=244, 303.1325pt x 252.945pt>
+File: ./diagrams/average_sonic_file_set_1.pdf Graphic file (type pdf)
+
+<use ./diagrams/average_sonic_file_set_1.pdf>
+Package pdftex.def Info: ./diagrams/average_sonic_file_set_1.pdf used on input 
+line 1662.
+(pdftex.def)             Requested size: 333.44678pt x 278.24036pt.
+
+<./diagrams/average_sonic_file_set_2.pdf, id=245, 303.1325pt x 252.945pt>
+File: ./diagrams/average_sonic_file_set_2.pdf Graphic file (type pdf)
+
+<use ./diagrams/average_sonic_file_set_2.pdf>
+Package pdftex.def Info: ./diagrams/average_sonic_file_set_2.pdf used on input 
+line 1672.
+(pdftex.def)             Requested size: 333.44678pt x 278.24036pt.
+ [70] [71 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/average_s
+onic_file_set_0.pdf>] [72 <C:/Users/Mauri/Documents/Research/SonicLib/manual/di
+agrams/average_sonic_file_set_1.pdf>] [73 <C:/Users/Mauri/Documents/Research/So
+nicLib/manual/diagrams/average_sonic_file_set_2.pdf>] [74]
+Chapter 7.
+[75
+
+] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86]
+<./diagrams/Ameriflux_Day104_0002.pdf, id=316, 433.62pt x 650.43pt>
+File: ./diagrams/Ameriflux_Day104_0002.pdf Graphic file (type pdf)
+
+<use ./diagrams/Ameriflux_Day104_0002.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_Day104_0002.pdf used on input lin
+e 2263.
+(pdftex.def)             Requested size: 368.57874pt x 552.8681pt.
+
+Overfull \hbox (23.57874pt too wide) in paragraph at lines 2263--2265
+ [] 
+ []
+
+<./diagrams/Ameriflux_Day104_1214.pdf, id=317, 433.62pt x 650.43pt>
+File: ./diagrams/Ameriflux_Day104_1214.pdf Graphic file (type pdf)
+
+<use ./diagrams/Ameriflux_Day104_1214.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_Day104_1214.pdf used on input lin
+e 2273.
+(pdftex.def)             Requested size: 368.57874pt x 552.8681pt.
+
+Overfull \hbox (23.57874pt too wide) in paragraph at lines 2273--2275
+ [] 
+ []
+
+<./diagrams/Ameriflux_Day181_0002.pdf, id=318, 433.62pt x 650.43pt>
+File: ./diagrams/Ameriflux_Day181_0002.pdf Graphic file (type pdf)
+
+<use ./diagrams/Ameriflux_Day181_0002.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_Day181_0002.pdf used on input lin
+e 2283.
+(pdftex.def)             Requested size: 368.57874pt x 552.8681pt.
+
+Overfull \hbox (23.57874pt too wide) in paragraph at lines 2283--2285
+ [] 
+ []
+
+<./diagrams/Ameriflux_Day181_1214.pdf, id=319, 433.62pt x 650.43pt>
+File: ./diagrams/Ameriflux_Day181_1214.pdf Graphic file (type pdf)
+
+<use ./diagrams/Ameriflux_Day181_1214.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_Day181_1214.pdf used on input lin
+e 2293.
+(pdftex.def)             Requested size: 368.57874pt x 552.8681pt.
+
+Overfull \hbox (23.57874pt too wide) in paragraph at lines 2293--2295
+ [] 
+ []
+
+[87] [88 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/Ameriflux_
+Day104_0002.pdf>] [89 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagra
+ms/Ameriflux_Day104_1214.pdf>] [90 <C:/Users/Mauri/Documents/Research/SonicLib/
+manual/diagrams/Ameriflux_Day181_0002.pdf>] [91 <C:/Users/Mauri/Documents/Resea
+rch/SonicLib/manual/diagrams/Ameriflux_Day181_1214.pdf>]
+<./diagrams/Ameriflux_OP_104/Var_A104_scatter.jpg, id=356, 401.5pt x 401.5pt>
+File: ./diagrams/Ameriflux_OP_104/Var_A104_scatter.jpg Graphic file (type jpg)
+
+<use ./diagrams/Ameriflux_OP_104/Var_A104_scatter.jpg>
+Package pdftex.def Info: ./diagrams/Ameriflux_OP_104/Var_A104_scatter.jpg used 
+on input line 2328.
+(pdftex.def)             Requested size: 361.34665pt x 361.34665pt.
+
+Overfull \hbox (16.34665pt too wide) in paragraph at lines 2328--2330
+ [] 
+ []
+
+<./diagrams/Ameriflux_OP_181/Var_A181_scatter.jpg, id=357, 401.5pt x 401.5pt>
+File: ./diagrams/Ameriflux_OP_181/Var_A181_scatter.jpg Graphic file (type jpg)
+
+<use ./diagrams/Ameriflux_OP_181/Var_A181_scatter.jpg>
+Package pdftex.def Info: ./diagrams/Ameriflux_OP_181/Var_A181_scatter.jpg used 
+on input line 2338.
+(pdftex.def)             Requested size: 361.34665pt x 361.34665pt.
+
+Overfull \hbox (16.34665pt too wide) in paragraph at lines 2338--2340
+ [] 
+ []
+
+<./diagrams/CRA.01/Var_CRA01_scatter.jpg, id=358, 401.5pt x 401.5pt>
+File: ./diagrams/CRA.01/Var_CRA01_scatter.jpg Graphic file (type jpg)
+
+<use ./diagrams/CRA.01/Var_CRA01_scatter.jpg>
+Package pdftex.def Info: ./diagrams/CRA.01/Var_CRA01_scatter.jpg used on input 
+line 2348.
+(pdftex.def)             Requested size: 361.34665pt x 361.34665pt.
+
+Overfull \hbox (16.34665pt too wide) in paragraph at lines 2348--2350
+ [] 
+ []
+
+[92] [93 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/Ameriflux_
+OP_104/Var_A104_scatter.jpg>] [94 <C:/Users/Mauri/Documents/Research/SonicLib/m
+anual/diagrams/Ameriflux_OP_181/Var_A181_scatter.jpg>] [95 <C:/Users/Mauri/Docu
+ments/Research/SonicLib/manual/diagrams/CRA.01/Var_CRA01_scatter.jpg>]
+<./diagrams/Ameriflux_OP_104/H2O_20120414_16.pdf, id=371, 289.08pt x 433.62pt>
+File: ./diagrams/Ameriflux_OP_104/H2O_20120414_16.pdf Graphic file (type pdf)
+
+<use ./diagrams/Ameriflux_OP_104/H2O_20120414_16.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_OP_104/H2O_20120414_16.pdf used o
+n input line 2373.
+(pdftex.def)             Requested size: 346.89426pt x 520.3414pt.
+
+Overfull \hbox (1.89426pt too wide) in paragraph at lines 2373--2375
+ [] 
+ []
+
+
+<./diagrams/Ameriflux_OP_104/H2O_20120414_12.pdf, id=372, 289.08pt x 433.62pt>
+File: ./diagrams/Ameriflux_OP_104/H2O_20120414_12.pdf Graphic file (type pdf)
+
+<use ./diagrams/Ameriflux_OP_104/H2O_20120414_12.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_OP_104/H2O_20120414_12.pdf used o
+n input line 2383.
+(pdftex.def)             Requested size: 346.89426pt x 520.3414pt.
+
+Overfull \hbox (1.89426pt too wide) in paragraph at lines 2383--2385
+ [] 
+ []
+
+
+<./diagrams/Ameriflux_OP_104/TKE_20120414_05.pdf, id=373, 289.08pt x 289.08pt>
+File: ./diagrams/Ameriflux_OP_104/TKE_20120414_05.pdf Graphic file (type pdf)
+
+<use ./diagrams/Ameriflux_OP_104/TKE_20120414_05.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_OP_104/TKE_20120414_05.pdf used o
+n input line 2413.
+(pdftex.def)             Requested size: 346.89426pt x 346.89426pt.
+
+Overfull \hbox (1.89426pt too wide) in paragraph at lines 2413--2415
+ [] 
+ []
+
+
+<./diagrams/Ameriflux_OP_104/TKE_20120414_12.pdf, id=374, 289.08pt x 289.08pt>
+File: ./diagrams/Ameriflux_OP_104/TKE_20120414_12.pdf Graphic file (type pdf)
+
+<use ./diagrams/Ameriflux_OP_104/TKE_20120414_12.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_OP_104/TKE_20120414_12.pdf used o
+n input line 2423.
+(pdftex.def)             Requested size: 346.89426pt x 346.89426pt.
+
+Overfull \hbox (1.89426pt too wide) in paragraph at lines 2423--2425
+ [] 
+ []
+
+[96] [97 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/Ameriflux_
+OP_104/H2O_20120414_16.pdf>] [98 <C:/Users/Mauri/Documents/Research/SonicLib/ma
+nual/diagrams/Ameriflux_OP_104/H2O_20120414_12.pdf>] [99 <C:/Users/Mauri/Docume
+nts/Research/SonicLib/manual/diagrams/Ameriflux_OP_104/TKE_20120414_05.pdf>]
+[100 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/Ameriflux_OP_1
+04/TKE_20120414_12.pdf>]
+<./diagrams/Ameriflux_OP_104/TKE_HW_20120414_05.pdf, id=411, 289.08pt x 433.62p
+t>
+File: ./diagrams/Ameriflux_OP_104/TKE_HW_20120414_05.pdf Graphic file (type pdf
+)
+ <use ./diagrams/Ameriflux_OP_104/TKE_HW_20120414_05.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_OP_104/TKE_HW_20120414_05.pdf use
+d on input line 2445.
+(pdftex.def)             Requested size: 346.89426pt x 520.3414pt.
+
+Overfull \hbox (1.89426pt too wide) in paragraph at lines 2445--2447
+ [] 
+ []
+
+
+<./diagrams/Ameriflux_OP_104/TKE_HW_20120414_12.pdf, id=412, 289.08pt x 433.62p
+t>
+File: ./diagrams/Ameriflux_OP_104/TKE_HW_20120414_12.pdf Graphic file (type pdf
+)
+ <use ./diagrams/Ameriflux_OP_104/TKE_HW_20120414_12.pdf>
+Package pdftex.def Info: ./diagrams/Ameriflux_OP_104/TKE_HW_20120414_12.pdf use
+d on input line 2455.
+(pdftex.def)             Requested size: 346.89426pt x 520.3414pt.
+
+Overfull \hbox (1.89426pt too wide) in paragraph at lines 2455--2457
+ [] 
+ []
+
+[101] [102 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/Ameriflu
+x_OP_104/TKE_HW_20120414_05.pdf>] [103 <C:/Users/Mauri/Documents/Research/Sonic
+Lib/manual/diagrams/Ameriflux_OP_104/TKE_HW_20120414_12.pdf>] [104
+
+]
+Chapter 8.
+[105] [106] [107] [108] [109] [110] [111] [112] [113] [114]
+Overfull \hbox (58.4712pt too wide) in paragraph at lines 3023--3024
+\OT1/cmr/m/n/10 be copied man-u-ally to data source di-rec-tory, in our case []
+\OT1/cmtt/m/n/10 <SonicLib_Root>/TestData/CRA.01\OT1/cmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (26.36082pt too wide) in paragraph at lines 3040--3041
+[]\OT1/cmr/m/n/10 At end of pro-cess-ing we have in our hands a new ob-ject, []
+\OT1/cmtt/m/n/10 d\OT1/cmr/m/n/10 , of type []\OT1/cmtt/m/n/10 sonic.avg.data\O
+T1/cmr/m/n/10 ,
+ []
+
+[115] <./diagrams/CRA01_Vel.pdf, id=474, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_Vel.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_Vel.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_Vel.pdf used on input line 3061.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+
+<./diagrams/CRA01_Temp.pdf, id=475, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_Temp.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_Temp.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_Temp.pdf used on input line 3071.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+
+<./diagrams/CRA01_Q.pdf, id=476, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_Q.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_Q.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_Q.pdf used on input line 3081.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+
+<./diagrams/CRA01_C.pdf, id=477, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_C.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_C.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_C.pdf used on input line 3091.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+ [116 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_Vel.pdf
+>] [117 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_Temp.
+pdf> <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_Q.pdf>]
+<./diagrams/CRA01_H0v.pdf, id=499, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_H0v.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_H0v.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_H0v.pdf used on input line 3125.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+ [118 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_C.pdf>]
+
+<./diagrams/CRA01_H0.pdf, id=508, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_H0.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_H0.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_H0.pdf used on input line 3143.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+ [119 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_H0v.pdf
+>]
+<./diagrams/CRA01_He.pdf, id=517, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_He.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_He.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_He.pdf used on input line 3155.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+
+<./diagrams/CRA01_Fq.pdf, id=518, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_Fq.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_Fq.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_Fq.pdf used on input line 3167.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+ [120 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_H0.pdf>
+] [121 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_He.pdf
+> <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_Fq.pdf>]
+<./diagrams/CRA01_W_RelNon.pdf, id=541, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_W_RelNon.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_W_RelNon.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_W_RelNon.pdf used on input line 3201.
+
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+ [122 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_W_RelNo
+n.pdf>]
+<./diagrams/CRA01_WT_NonSte.pdf, id=550, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_WT_NonSte.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_WT_NonSte.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_WT_NonSte.pdf used on input line 3217
+.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+
+<./diagrams/CRA01_WQ_NonSte.pdf, id=551, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_WQ_NonSte.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_WQ_NonSte.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_WQ_NonSte.pdf used on input line 3229
+.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+
+<./diagrams/CRA01_WC_NonSte.pdf, id=552, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_WC_NonSte.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_WC_NonSte.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_WC_NonSte.pdf used on input line 3239
+.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+ [123 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_WT_NonS
+te.pdf>] [124 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01
+_WQ_NonSte.pdf> <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA
+01_WC_NonSte.pdf>] [125]
+<./diagrams/CRA01_Rot2.pdf, id=577, 289.08pt x 216.81pt>
+File: ./diagrams/CRA01_Rot2.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_Rot2.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_Rot2.pdf used on input line 3328.
+(pdftex.def)             Requested size: 317.98897pt x 238.49173pt.
+ [126]
+Overfull \hbox (34.33327pt too wide) in paragraph at lines 3349--3350
+[]\OT1/cmr/m/n/10 In a more Son-i-cLib fla-vor, we may en-able trend re-moval b
+y spec-i-fy-ing []\OT1/cmtt/m/n/10 trend.removal
+ []
+
+[127 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_Rot2.pdf
+>] <./diagrams/H0vDetrend.pdf, id=590, 303.1325pt x 252.945pt>
+File: ./diagrams/H0vDetrend.pdf Graphic file (type pdf)
+
+<use ./diagrams/H0vDetrend.pdf>
+Package pdftex.def Info: ./diagrams/H0vDetrend.pdf used on input line 3388.
+(pdftex.def)             Requested size: 333.44678pt x 278.24036pt.
+
+<./diagrams/TrendExample.pdf, id=591, 303.1325pt x 252.945pt>
+File: ./diagrams/TrendExample.pdf Graphic file (type pdf)
+
+<use ./diagrams/TrendExample.pdf>
+Package pdftex.def Info: ./diagrams/TrendExample.pdf used on input line 3426.
+(pdftex.def)             Requested size: 333.44678pt x 278.24036pt.
+ [128] [129 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/H0vDetr
+end.pdf>] [130 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/Tren
+dExample.pdf>]
+<./diagrams/WRnsDetrend.pdf, id=611, 303.1325pt x 252.945pt>
+File: ./diagrams/WRnsDetrend.pdf Graphic file (type pdf)
+
+<use ./diagrams/WRnsDetrend.pdf>
+Package pdftex.def Info: ./diagrams/WRnsDetrend.pdf used on input line 3442.
+(pdftex.def)             Requested size: 333.44678pt x 278.24036pt.
+
+<./diagrams/WTNstDetrend.pdf, id=612, 303.1325pt x 252.945pt>
+File: ./diagrams/WTNstDetrend.pdf Graphic file (type pdf)
+
+<use ./diagrams/WTNstDetrend.pdf>
+Package pdftex.def Info: ./diagrams/WTNstDetrend.pdf used on input line 3456.
+(pdftex.def)             Requested size: 333.44678pt x 278.24036pt.
+ [131 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/WRnsDetrend.p
+df>] [132 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/WTNstDetr
+end.pdf>]
+<./diagrams/sigma_uv.pdf, id=629, 289.08pt x 289.08pt>
+File: ./diagrams/sigma_uv.pdf Graphic file (type pdf)
+
+<use ./diagrams/sigma_uv.pdf>
+Package pdftex.def Info: ./diagrams/sigma_uv.pdf used on input line 3486.
+(pdftex.def)             Requested size: 317.98897pt x 317.98897pt.
+
+<./diagrams/sigma_w.pdf, id=630, 289.08pt x 289.08pt>
+File: ./diagrams/sigma_w.pdf Graphic file (type pdf)
+
+<use ./diagrams/sigma_w.pdf>
+Package pdftex.def Info: ./diagrams/sigma_w.pdf used on input line 3498.
+(pdftex.def)             Requested size: 317.98897pt x 317.98897pt.
+
+<./diagrams/sigma_uv_vs_w.pdf, id=631, 289.08pt x 289.08pt>
+File: ./diagrams/sigma_uv_vs_w.pdf Graphic file (type pdf)
+
+<use ./diagrams/sigma_uv_vs_w.pdf>
+Package pdftex.def Info: ./diagrams/sigma_uv_vs_w.pdf used on input line 3510.
+(pdftex.def)             Requested size: 317.98897pt x 317.98897pt.
+ [133] [134 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/sigma_u
+v.pdf>] [135 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/sigma_
+w.pdf>] [136 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/sigma_
+uv_vs_w.pdf>]
+Overfull \hbox (9.89627pt too wide) in paragraph at lines 3541--3541
+[]\OT1/cmr/bx/n/14.4 Ultrasonic anemom-e-try for wind power plants 
+ []
+
+
+Overfull \hbox (16.75061pt too wide) in paragraph at lines 3550--3551
+[]\OT1/cmr/m/n/10 Ultrasonic anemome-ters promise many im-prove-ments over me-c
+han-i-cal anemome-
+ []
+
+[137] [138] [139] [140] [141] [142] [143] [144] [145]
+Overfull \hbox (18.6812pt too wide) in paragraph at lines 3830--3831
+\OT1/cmr/m/n/10 appearing to the right of 8.64[] is con-tin-u-ous in the in-ter
+-val $(0\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 1\OT1/cmr/m/n/10 ]$ with $[][] \OML
+/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =$
+ []
+
+<./diagrams/CRA01_Weibull.pdf, id=692, 433.62pt x 289.08pt>
+File: ./diagrams/CRA01_Weibull.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_Weibull.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_Weibull.pdf used on input line 3849.
+(pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
+
+Overfull \hbox (1.89647pt too wide) in paragraph at lines 3849--3851
+ [] 
+ []
+
+[146 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_Weibull.
+pdf>]
+<./diagrams/Weibull_Exceedance_Probability.pdf, id=701, 433.62pt x 289.08pt>
+File: ./diagrams/Weibull_Exceedance_Probability.pdf Graphic file (type pdf)
+
+<use ./diagrams/Weibull_Exceedance_Probability.pdf>
+Package pdftex.def Info: ./diagrams/Weibull_Exceedance_Probability.pdf used on 
+input line 3861.
+(pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
+
+Overfull \hbox (1.89647pt too wide) in paragraph at lines 3861--3863
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [147 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/Weibull_Excee
+dance_Probability.pdf>] [148]
+<./diagrams/CRA01_Weibull_exper.pdf, id=713, 433.62pt x 289.08pt>
+File: ./diagrams/CRA01_Weibull_exper.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_Weibull_exper.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_Weibull_exper.pdf used on input line 
+3910.
+(pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
+
+Overfull \hbox (1.89647pt too wide) in paragraph at lines 3910--3912
+ [] 
+ []
+
+<./diagrams/CRA01_Weibull_exper_cut.pdf, id=714, 433.62pt x 289.08pt>
+File: ./diagrams/CRA01_Weibull_exper_cut.pdf Graphic file (type pdf)
+
+<use ./diagrams/CRA01_Weibull_exper_cut.pdf>
+Package pdftex.def Info: ./diagrams/CRA01_Weibull_exper_cut.pdf used on input l
+ine 3922.
+(pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
+
+Overfull \hbox (1.89647pt too wide) in paragraph at lines 3922--3924
+ [] 
+ []
+
+[149 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CRA01_Weibull_
+exper.pdf>] [150 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/CR
+A01_Weibull_exper_cut.pdf>]
+Chapter 9.
+[151
+
+]
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 3981--3981
+[]\OT1/cmtt/m/n/10 f <- get.raw.data("../TestData/CRA.01/20100516.15.csv", verb
+ose=TRUE)[] 
+ []
+
+<./diagrams/SimplePlot0.pdf, id=735, 433.62pt x 289.08pt>
+File: ./diagrams/SimplePlot0.pdf Graphic file (type pdf)
+
+<use ./diagrams/SimplePlot0.pdf>
+Package pdftex.def Info: ./diagrams/SimplePlot0.pdf used on input line 4026.
+(pdftex.def)             Requested size: 476.98347pt x 317.98897pt.
+
+Overfull \hbox (131.98347pt too wide) in paragraph at lines 4026--4028
+ [] 
+ []
+
+[152] <./diagrams/SimplePlot1.pdf, id=739, 433.62pt x 289.08pt>
+File: ./diagrams/SimplePlot1.pdf Graphic file (type pdf)
+
+<use ./diagrams/SimplePlot1.pdf>
+Package pdftex.def Info: ./diagrams/SimplePlot1.pdf used on input line 4044.
+(pdftex.def)             Requested size: 476.98347pt x 317.98897pt.
+
+Overfull \hbox (131.98347pt too wide) in paragraph at lines 4044--4046
+ [] 
+ []
+
+[153 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/SimplePlot0.pd
+f>] [154 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/SimplePlot
+1.pdf>] <./diagrams/SimplePlot2.pdf, id=757, 433.62pt x 289.08pt>
+File: ./diagrams/SimplePlot2.pdf Graphic file (type pdf)
+
+<use ./diagrams/SimplePlot2.pdf>
+Package pdftex.def Info: ./diagrams/SimplePlot2.pdf used on input line 4066.
+(pdftex.def)             Requested size: 476.98347pt x 317.98897pt.
+
+Overfull \hbox (131.98347pt too wide) in paragraph at lines 4066--4068
+ [] 
+ []
+
+[155 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/SimplePlot2.pd
+f>] [156] <./diagrams/SimplePlot3.pdf, id=769, 433.62pt x 289.08pt>
+File: ./diagrams/SimplePlot3.pdf Graphic file (type pdf)
+
+<use ./diagrams/SimplePlot3.pdf>
+Package pdftex.def Info: ./diagrams/SimplePlot3.pdf used on input line 4153.
+(pdftex.def)             Requested size: 476.98347pt x 317.98897pt.
+
+Overfull \hbox (131.98347pt too wide) in paragraph at lines 4153--4155
+ [] 
+ []
+
+[157] [158 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/SimplePl
+ot3.pdf>] <./diagrams/SimplePlot4.pdf, id=782, 433.62pt x 289.08pt>
+File: ./diagrams/SimplePlot4.pdf Graphic file (type pdf)
+
+<use ./diagrams/SimplePlot4.pdf>
+Package pdftex.def Info: ./diagrams/SimplePlot4.pdf used on input line 4189.
+(pdftex.def)             Requested size: 476.98347pt x 317.98897pt.
+
+Overfull \hbox (131.98347pt too wide) in paragraph at lines 4189--4191
+ [] 
+ []
+
+[159 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/SimplePlot4.pd
+f>] <./diagrams/UstarOverVel_vs_Dir_Standard.pdf, id=791, 433.62pt x 361.35pt>
+File: ./diagrams/UstarOverVel_vs_Dir_Standard.pdf Graphic file (type pdf)
+
+<use ./diagrams/UstarOverVel_vs_Dir_Standard.pdf>
+Package pdftex.def Info: ./diagrams/UstarOverVel_vs_Dir_Standard.pdf used on in
+put line 4208.
+(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
+
+Overfull \hbox (88.61894pt too wide) in paragraph at lines 4208--4210
+ [] 
+ []
+
+<./diagrams/UstarOverVel_vs_Dir.pdf, id=792, 433.62pt x 361.35pt>
+File: ./diagrams/UstarOverVel_vs_Dir.pdf Graphic file (type pdf)
+
+<use ./diagrams/UstarOverVel_vs_Dir.pdf>
+Package pdftex.def Info: ./diagrams/UstarOverVel_vs_Dir.pdf used on input line 
+4222.
+(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
+
+Overfull \hbox (88.61894pt too wide) in paragraph at lines 4222--4224
+ [] 
+ []
+
+[160 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/UstarOverVel_v
+s_Dir_Standard.pdf>] [161 <C:/Users/Mauri/Documents/Research/SonicLib/manual/di
+agrams/UstarOverVel_vs_Dir.pdf>] [162] [163] [164] [165]
+<./diagrams/DirMeanUstar_1.pdf, id=823, 303.1325pt x 303.1325pt>
+File: ./diagrams/DirMeanUstar_1.pdf Graphic file (type pdf)
+
+<use ./diagrams/DirMeanUstar_1.pdf>
+Package pdftex.def Info: ./diagrams/DirMeanUstar_1.pdf used on input line 4393.
+
+(pdftex.def)             Requested size: 303.13176pt x 303.13176pt.
+
+<./diagrams/DirMeanUstar_2.pdf, id=824, 303.1325pt x 303.1325pt>
+File: ./diagrams/DirMeanUstar_2.pdf Graphic file (type pdf)
+
+<use ./diagrams/DirMeanUstar_2.pdf>
+Package pdftex.def Info: ./diagrams/DirMeanUstar_2.pdf used on input line 4426.
+
+(pdftex.def)             Requested size: 303.13176pt x 303.13176pt.
+ [166] [167 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/DirMean
+Ustar_1.pdf>] [168 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/
+DirMeanUstar_2.pdf>]
+<./diagrams/DirNumUstar.pdf, id=844, 303.1325pt x 303.1325pt>
+File: ./diagrams/DirNumUstar.pdf Graphic file (type pdf)
+
+<use ./diagrams/DirNumUstar.pdf>
+Package pdftex.def Info: ./diagrams/DirNumUstar.pdf used on input line 4459.
+(pdftex.def)             Requested size: 303.13176pt x 303.13176pt.
+ [169] [170 <C:/Users/Mauri/Documents/Research/SonicLib/manual/diagrams/DirNumU
+star.pdf>] [171] [172]
+Chapter 10.
+[173
+
+] [174] [175]
+(C:\Users\Mauri\Documents\Research\SonicLib\manual\SonicLib.bbl [176] [177]
+[178
+
+] [179]) [180]
+(C:\Users\Mauri\Documents\Research\SonicLib\manual\SonicLib.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3381 strings out of 494045
+ 51699 string characters out of 3148387
+ 100172 words of memory out of 3000000
+ 6575 multiletter control sequences out of 15000+200000
+ 16299 words of font info for 67 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 27i,15n,22p,1030b,542s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsl10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on SonicLib.pdf (180 pages, 3539460 bytes).
+PDF statistics:
+ 958 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 256 words of extra memory for PDF output out of 10000 (max. 10000000)
+
