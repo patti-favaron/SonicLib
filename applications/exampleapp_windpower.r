@@ -8,11 +8,15 @@ source("soniclib.r");
 # Written by: Patrizia Favaron
 # e-mail:     patti.favaron@gmail.com
 #
+# With many thanks to the Environmental Physics research group
+# within the Physics Department "Aldo Pontremoli" of the
+# University of Milan for their help, support, and encouragement.
+#
 #------------------------------------------------------------------
 # Statement of Licensing Conditions
 #------------------------------------------------------------------
 #
-# Copyright 2022 Università degli Studi di Milano
+# Copyright 2022 Patrizia Favaron
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation

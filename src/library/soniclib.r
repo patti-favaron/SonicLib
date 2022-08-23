@@ -7,14 +7,25 @@ library(deSolve);
 # Procedure for (testing the) direct merging of analog measurement
 # sets.
 #
-# Written by: some people
+# Written by:
+#   Patrizia Favaron    (most code and, as supervisor)
+#   Davide Casabianca   ("air.quality")
+#   Alice Crespi        ("air.quality")
+#   Manuela Dell'Acqua  ("air.quality")
+#   Luca Palazzolo      ("air.quality")
+#   Roberto Nava        ("air.quality")
+#
 # e-mail:     patti.favaron@gmail.com
+#
+# With many thanks to the Environmental Physics research group
+# within the Physics Department "Aldo Pontremoli" of the
+# University of Milan for their help, support, and encouragement.
 #
 #------------------------------------------------------------------
 # Statement of Licensing Conditions
 #------------------------------------------------------------------
 #
-# Copyright 2022 Università degli Studi di Milano
+# Copyright 2022 Patrizia Favaron
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation
@@ -2269,7 +2280,7 @@ estimate.z0<-function(ed, time.stamp.from=NULL, time.stamp.to=NULL, verbose=FALS
 #
 # and
 #
-#   Mauri Favaron (supervisor)
+#   Patrizia Favaron (supervisor)
 #
 # One of the most delicate, and questionable, parts in this routine is assuming a fixed
 # expression of temperature lapse rate to fit all possible cases. In his thesis,

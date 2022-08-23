@@ -9,7 +9,9 @@
 ! Statement of Licensing Conditions
 !------------------------------------------------------------------
 !
-! Copyright 2022 Università degli Studi di Milano
+! With many thanks to the Environmental Physics research group
+! within the Physics Department "Aldo Pontremoli" of the
+! University of Milan for their help, support, and encouragement.
 !
 ! Permission is hereby granted, free of charge, to any person
 ! obtaining a copy of this software and associated documentation
@@ -68,7 +70,7 @@
             print *, ""
             print *, "  sc_free 20150304.14d 6 7 0.085451826 100.0 0.00122074 12.0 20150304.14d.csv"
             print *, ""
-            print *, "Copyright 2016 by Università degli Studi di Milano"
+            print *, "Copyright 2022 by Patrizia Favaron"
             print *, "                  All rights reserved"
             print *
             stop

@@ -7,6 +7,10 @@
 ! Credit: Werner Eugster, and his "readslt.R" file.
 ! His implementation is followed carefully.
 !
+! With many thanks to the Environmental Physics research group
+! within the Physics Department "Aldo Pontremoli" of the
+! University of Milan for their help, support, and encouragement.
+!
 !------------------------------------------------------------------
 ! Statement of Licensing Conditions
 !------------------------------------------------------------------
@@ -122,7 +126,7 @@ PROGRAM ReadSlt
 		PRINT *,'              "q" 0.03   0.0'
 		PRINT *,'              "c" 0.0024 0.0'
 		PRINT *
-		PRINT *,'Copyright 2012 by Università degli Studi di Milano.'
+		PRINT *,'Copyright 2022 by Patrizia Favaron.'
 		PRINT *
 		STOP
 	END IF

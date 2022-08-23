@@ -4,6 +4,10 @@
 # Written by: Davide Casabianca, 
 # e-mail:     patti.favaron@gmail.com
 #
+# With many thanks to the Environmental Physics research group
+# within the Physics Department "Aldo Pontremoli" of the
+# University of Milan for their help, support, and encouragement.
+#
 #------------------------------------------------------------------
 # Statement of Licensing Conditions
 #------------------------------------------------------------------
