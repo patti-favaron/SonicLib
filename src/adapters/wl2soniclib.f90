@@ -22,7 +22,7 @@
 !
 program wl2soniclib
     
-    use datetime
+    use datetime    ! From repository 'https://github.com/patti-favaron/datetime'
     
     implicit none
     
