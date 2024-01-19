@@ -72,10 +72,10 @@ get.raw.data <- function(file.name, sampling.rate=10, threshold=0.005, verbose=F
   #
   #    C.Bassi, M.Favaron, M.Garzoglio, A.Volonte'
   #
-  
+
   # Get data in CSV form
   d <- read.csv(file.name, header=TRUE);
-  
+
   # Check number of data is consistent with a full file, at the
   # specified sampling rate (if not, reject data file)
   l.expected <- sampling.rate*3600;
@@ -89,7 +89,7 @@ get.raw.data <- function(file.name, sampling.rate=10, threshold=0.005, verbose=F
     if(verbose) print(sprintf("get.raw.data:: Error: Number of data, %d, is inconsistent with the expected number, %d", l.actual, l.expected));
     return(NULL);
   }
-  
+
   # Check wind and sonic temperature columns to exist, and transfer them to temp columns
   # (sonic quadruples are required to exist for a SonicLib raw data file to be considered valid)
   n <- names(d);
@@ -102,7 +102,7 @@ get.raw.data <- function(file.name, sampling.rate=10, threshold=0.005, verbose=F
   v <- d$v;
   w <- d$w;
   t <- d$t;
-  
+
   # Make invalid data identification easier; in SonicLib raw files invalid data
   # are identified by a value equal to -9999.9 or less (this convention, possibly
   # non-optimal from software engineering standpoint, has been adopted because of its
@@ -111,7 +111,7 @@ get.raw.data <- function(file.name, sampling.rate=10, threshold=0.005, verbose=F
   v[v < -9999] <- NA;
   w[w < -9999] <- NA;
   t[t < -9999] <- NA;
-  
+
   # Attribute time stamp based on positional index, if needed
   if(!any(n=="time.stamp")) {
     time.stamp <- 0:(l.actual-1)/l.actual*3600;
@@ -125,55 +125,55 @@ get.raw.data <- function(file.name, sampling.rate=10, threshold=0.005, verbose=F
       time.stamp <- d$time.stamp;
     }
   }
-  
+
   # With time stamp and sonic quadruples the mandatory part of output data frame
   # is done, so we may create the output data frame.
   e <- data.frame(time.stamp, u, v, w, t);
   # Fron now on optional quantities are searched and, if present, will be added
   # to output data frame rightwards.
-  
+
   # Water?
   if(any(n=="q")) {
     q <- d$q;
     q[q < 0.] <- NA;  # Negative molar concentrations are physically unrealistic
     e$q <- q;
   }
-  
+
   # Carbon dioxide?
   if(any(n=="c")) {
     c <- d$c;
     c[c < 0.] <- NA;  # Negative molar concentrations are physically unrealistic
     e$c <- c;
   }
-  
+
   # Ammonia?
   if(any(n=="a")) {
     a <- d$a;
     a[a < 0.] <- NA;  # Negative molar concentrations are physically unrealistic
     e$a <- a;
   }
-  
+
   # Methane?
   if(any(n=="m")) {
     m <- d$m;
     m[m < 0.] <- NA;  # Negative molar concentrations are physically unrealistic
     e$m <- m;
   }
-  
+
   # Conventional temperature?
   if(any(n=="temp")) {
     temp <- d$temp;
     temp[temp < -40. | temp > 60] <- NA;  # Most instruments restrict temperature range to -40..+60 interval
     e$temp <- temp;
   }
-  
+
   # Relative humidity?
   if(any(n=="hrel")) {
     hrel <- d$hrel;
     hrel[hrel < 0. | hrel > 105.] <- NA;  # More than 100% humidity possible (especially under foggy conditions)
     e$hrel <- hrel;
   }
-  
+
   # Leave
   q<-list(
     data          = e,
@@ -181,13 +181,13 @@ get.raw.data <- function(file.name, sampling.rate=10, threshold=0.005, verbose=F
   );
   class(q) <- "sonic.raw.data";
   return(q);
-  
+
 }
 
 
 # Read consecutive data files to a unique file and aggregate data if required.
 get.multi.raw.data <- function(name.first.file, n.hours=1, sampling.rate=10, threshold=0.005, average.by="none", verbose=FALSE) {
-  
+
   # Input values:
   #
   #    name.first.file      Name of first file to process
@@ -216,7 +216,7 @@ get.multi.raw.data <- function(name.first.file, n.hours=1, sampling.rate=10, thr
   #
   #    C.Bassi, M.Favaron, M.Garzoglio, A.Volonte'
   #
-  
+
   # Generate file names
   str.len <- nchar(name.first.file);
   path <- substring(name.first.file, first=1, last=str.len-15);
@@ -228,12 +228,12 @@ get.multi.raw.data <- function(name.first.file, n.hours=1, sampling.rate=10, thr
   time.stamp <- as.POSIXct(
     paste(year, "-", month, "-", day, " ", hour, ":00:00", sep=""),
     tz="UTC"
-    );
+  );
   hours <- 3600*(0:(n.hours-1));
   time.stamp.set <- time.stamp + hours;
   file.set <- strftime(time.stamp.set, format="%Y%m%d.%H.csv", tz="UTC");
   file.set <- paste(path, file.set, sep="");
-  
+
   # Read and append all data files in list
   first <- TRUE;
   i.hr <- 0;
@@ -254,7 +254,7 @@ get.multi.raw.data <- function(name.first.file, n.hours=1, sampling.rate=10, thr
     }
     i.hr <- i.hr+1;
   }
-  
+
   # Aggregate data by seconds or minutes, if required
   if(average.by == "seconds") {
     time.index <- as.factor(as.integer(g$time.stamp));
@@ -265,15 +265,15 @@ get.multi.raw.data <- function(name.first.file, n.hours=1, sampling.rate=10, thr
     g <- aggregate(g, by=list(time.index), mean, na.rm=TRUE);
     g$time.stamp <- round(g$time.stamp - g$time.stamp[1]);
   }
-  
+
   # Leave
   result <- list(
     data          = g,
     sampling.rate = 1.0/g$time.stamp[2]
-    );
+  );
   class(result) <- "sonic.raw.data";
   return(result);
-  
+
 }
 
 
@@ -287,7 +287,7 @@ set.spike.detection.threshold <- function(u=NULL, v=NULL, w=NULL, t=NULL, q=NULL
     else { spike.x <- 3.0; }
     return(spike.x);
   }
-  
+
   # Set spike detection thresholds
   spike.u <- spike.limit.set(u);
   spike.v <- spike.limit.set(v);
@@ -299,7 +299,7 @@ set.spike.detection.threshold <- function(u=NULL, v=NULL, w=NULL, t=NULL, q=NULL
   spike.a <- spike.limit.set(a);
   spike.temp <- spike.limit.set(temp);
   spike.hrel <- spike.limit.set(hrel);
-  
+
   # Compose object, return it and leave
   result <- list(
     u = spike.u,
@@ -315,7 +315,7 @@ set.spike.detection.threshold <- function(u=NULL, v=NULL, w=NULL, t=NULL, q=NULL
   );
   class(result) <- "spike.detection.spec";
   return(result);
-  
+
 }
 
 
@@ -339,7 +339,7 @@ set.spike.detection.threshold <- function(u=NULL, v=NULL, w=NULL, t=NULL, q=NULL
 #    S.Cesco, M.Favaron
 #
 average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, trend.removal="none", spike.detection.threshold=3, spike.treatment="set.na", min.fraction.valid=0.75, min.valid.data=2, file.dump=NULL, verbose=FALSE) {
-  
+
   # Inputs:
   #
   #   d                 Object of class "sonic.raw.data", as originated by "get.raw.data"
@@ -404,17 +404,17 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
   #   Object of type "sonic.avg.data" containing time stamped records containing averages, covariances,
   #   relative non stationarities and steadinesses.
   #
-  
+
   # Check the object "d" is the right type
   if(class(d) != "sonic.raw.data") {
     if(verbose) print("average.sonic.data:: error: Data not of class 'sonic.raw.data'");
     return(NULL);
   }
-  
+
   if(verbose & !is.null(file.dump)) {
     print(paste("About to generate manipulated file ",file.dump));
   }
-  
+
   # Set optional values delay
   if(class(delay)=="numeric") {
     delay.q    <- abs(delay);
@@ -436,7 +436,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
     if(verbose) print("average.sonic.data:: error: Argument 'delay' is not a number of an instance of class 'delay.spec'");
     return(NULL);
   }
-  
+
   # Set optional values spike detection threshold
   if(class(spike.detection.threshold)=="numeric") {
     spike.u    <- abs(spike.detection.threshold);
@@ -466,10 +466,10 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
     if(verbose) print("average.sonic.data:: error: Argument 'spike.detection.threshold' is not a number of an instance of class 'spike.detection.spec'");
     return(NULL);
   }
-  
+
   # Get sampling rate from input set
   sampling.rate <- d$sampling.rate;
-  
+
   # Check averaging time to be an exact multiple of 5, to divide 60 exactly,
   # and to be not less than 10
   a.t <- as.integer(averaging.time);
@@ -486,14 +486,14 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
     return(NULL);
   }
   # Post: a.t is a multiple of 5 within interval [10,60] inclusive, which divides 60
-  
+
   # Retrieve mandatory data
   time.stamp <- d$data$time.stamp;
   u          <- d$data$u;
   v          <- d$data$v;
   w          <- d$data$w;
   t          <- d$data$t;
-  
+
   # Check whether some optional column exists, retrieve it, and apply it the proper delay
   exists.water          <- !is.null(d$data$q);
   if(exists.water) {
@@ -531,7 +531,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
     delay.samples <- as.integer(round(delay.hrel * sampling.rate));
     hrel <- c( hrel[(delay.samples+1):length(hrel)], rep(NA, times=delay.samples));
   }
-  
+
   # Reserve workspace
   num.blocks <- 60 %/% a.t;
   n.data  <- numeric(num.blocks);
@@ -607,12 +607,12 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
   if(exists.rel.humidity) {
     hrel.avg <- numeric(num.blocks);
   }
-  
+
   # Reserve space for relative non-stationarity on wind components
   u.rns <- numeric(num.blocks);
   v.rns <- numeric(num.blocks);
   w.rns <- numeric(num.blocks);
-  
+
   # Allocate space for non-steadinesses
   uu.nst    <- numeric(num.blocks);
   uv.nst    <- numeric(num.blocks);
@@ -643,10 +643,10 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
     vm.nst  <- numeric(num.blocks);
     wm.nst  <- numeric(num.blocks);
   }
-  
+
   # Reserve space for trend removal indicators
   if(trend.removal == "linear") {
-    
+
     # Create all mandatory data vectors
     u.trend.slope    <- numeric(num.blocks);
     u.trend.constant <- numeric(num.blocks);
@@ -656,7 +656,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
     w.trend.constant <- numeric(num.blocks);
     t.trend.slope    <- numeric(num.blocks);
     t.trend.constant <- numeric(num.blocks);
-    
+
     # Optional data related indicators
     if(exists.water) {
       q.trend.slope    <- numeric(num.blocks);
@@ -682,18 +682,18 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
       hrel.trend.slope    <- numeric(num.blocks);
       hrel.trend.constant <- numeric(num.blocks);
     }
-    
+
   }
-  
+
   # Reserve workpace for spike removal statistics
   if(spike.treatment != "none") {
-    
+
     # Create all mandatory data vectors
     u.spike.count    <- numeric(num.blocks);
     v.spike.count    <- numeric(num.blocks);
     w.spike.count    <- numeric(num.blocks);
     t.spike.count    <- numeric(num.blocks);
-    
+
     # Optional data related indicators
     if(exists.water) {
       q.spike.count    <- numeric(num.blocks);
@@ -713,29 +713,29 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
     if(exists.rel.humidity) {
       hrel.spike.count    <- numeric(num.blocks);
     }
-    
+
   }
-  
+
   # Build time stamps for each data block
   t.stamp <- seq(from=initial.stamp, to=initial.stamp + (num.blocks-1)*a.t*60, by=a.t*60);
-  
+
   # Main loop: iterate over all blocks, and compute means and covariances for each of them
   num.sub.blocks <- a.t %/% 5;
   for(block in 1:num.blocks) {
-    
+
     # Process block data
     begin.block <- (block-1)*a.t*60;
     end.block   <- begin.block + a.t*60;
     data.block  <- d$data$time.stamp >= begin.block & d$data$time.stamp < end.block;
     n.data[block] <- sum(data.block);
     if(n.data[block] > 0) {
-      
+
       if(verbose) print(sprintf("Processing data block %d",block));
-      
+
       # Restrict attention to the indices really involved only
       # (not indispensable, but saves the computer a lot of work)
       this.block <- which(data.block);
-      
+
       # Extract data for current block
       time.stamp.b <- d$data$time.stamp[this.block];
       u.b <- d$data$u[this.block];
@@ -748,7 +748,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
       if(exists.methane)        m.b    <- d$data$m[this.block];
       if(exists.temperature)    temp.b <- d$data$temp[this.block];
       if(exists.rel.humidity)   hrel.b <- d$data$hrel[this.block];
-      
+
       # Check the data block really contains something, and skip
       # processing if not
       u.b.valid <- sum(!is.na(u.b));
@@ -813,7 +813,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
             hrel.trend.constant[block] <- hrel.b.d$constant;
           }
         }
-        
+
         # Prepare the data frame holding "manipulated" data in preparation
         # to saving them
         if(!is.null(file.dump)) {
@@ -843,7 +843,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
             d.manip <- rbind(d.manip,d.block);
           }
         }
-        
+
         # Detect spikes and treat them according to the algorithm selected
         if(spike.treatment == "set.na") {
           mean.u    <- mean(u.b, na.rm=TRUE);
@@ -919,7 +919,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
             hrel.spike.count[block] <- invalid.after - invalid.before;
           }
         }
-        
+
         # Compute basic statistics for current block
         u.avg[block] <- mean(u.b, na.rm=TRUE);
         v.avg[block] <- mean(v.b, na.rm=TRUE);
@@ -998,7 +998,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
         if(exists.rel.humidity) {
           hrel.avg[block] <- mean(hrel.b, na.rm=TRUE);
         }
-        
+
         # Allocate sub-block space
         uu.sub    <- numeric(num.sub.blocks);
         uv.sub    <- numeric(num.sub.blocks);
@@ -1029,28 +1029,28 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
           vm.sub    <- numeric(num.sub.blocks);
           wm.sub    <- numeric(num.sub.blocks);
         }
-        
+
         # Compute relative non-stationarity for wind components
         idx <- 1:length(d$data$time.stamp);
         x   <- idx[data.block];
         u.rns[block] <- relative.nonstationarity(x, u.b);
         v.rns[block] <- relative.nonstationarity(x, v.b);
         w.rns[block] <- relative.nonstationarity(x, w.b);
-        
+
         # Compute Foken non-steadiness
         for(sub.block in 1:num.sub.blocks) {
-          
+
           # if(verbose)  print(sprintf("Processing data sub-block %d",sub.block));
-          
+
           # Compute sub-interval covariances
           begin.sub.block <- begin.block + (sub.block-1)*a.t*60/num.sub.blocks;
           end.sub.block   <- begin.sub.block + a.t*60/num.sub.blocks;
           data.sub.block  <- d$data$time.stamp >= begin.sub.block & d$data$time.stamp < end.sub.block;
           if(any(data.sub.block)) {
-            
+
             # Restrict attention to sub-block indices, to save computing effort
             idx.sub.block <- which(data.sub.block);
-            
+
             # Extract data for current sub-block
             u.sb <- d$data$u[idx.sub.block];
             v.sb <- d$data$v[idx.sub.block];
@@ -1062,7 +1062,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
             if(exists.methane)        m.sb    <- d$data$m[idx.sub.block];
             if(exists.temperature)    temp.sb <- d$data$temp[idx.sub.block];
             if(exists.rel.humidity)   hrel.sb <- d$data$hrel[idx.sub.block];
-            
+
             uu.sub[sub.block]    <- cov(u.sb, u.sb, use="pairwise.complete.obs");
             uv.sub[sub.block]    <- cov(u.sb, v.sb, use="pairwise.complete.obs");
             uw.sub[sub.block]    <- cov(u.sb, w.sb, use="pairwise.complete.obs");
@@ -1092,11 +1092,11 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
               vm.sub[sub.block]  <- cov(v.sb, m.sb, use="pairwise.complete.obs");
               wm.sub[sub.block]  <- cov(w.sb, m.sb, use="pairwise.complete.obs");
             }
-                    
+
           }
-          
+
           else {
-            
+
             # No data: clean reaults
             uu.sub[sub.block] <-  NA;
             uv.sub[sub.block] <-  NA;
@@ -1127,11 +1127,11 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
               vm.sub[sub.block] <-  NA;
               wm.sub[sub.block] <-  NA;
             }
-            
+
           }
-          
+
         }
-        
+
         # Compute final non-steadinesses
         uu.nst[block] <-  abs((uu[block]-mean(uu.sub, na.rm=TRUE))/uu[block]);
         uv.nst[block] <-  abs((uv[block]-mean(uv.sub, na.rm=TRUE))/uv[block]);
@@ -1167,7 +1167,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
       else {
 
         if(verbose) print("No sonic data in this block");
-        
+
         # NA-ify trend removal
         if(trend.removal != "none") {
           u.trend.slope[block]    <- NA;
@@ -1203,7 +1203,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
             hrel.trend.constant[block] <- NA;
           }
         }
-        
+
         # NA-ify spike related quantities
         if(spike.treatment == "set.na") {
           u.spike.count[block] <- NA;
@@ -1217,7 +1217,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
           if(exists.temperature)    temp.spike.count[block] <- NA;
           if(exists.rel.humidity)   hrel.spike.count[block] <- NA;
         }
-        
+
         # NA-ify basic statistics for current block
         u.avg[block] <- NA;
         v.avg[block] <- NA;
@@ -1292,12 +1292,12 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
         if(exists.rel.humidity) {
           hrel.avg[block] <- NA;
         }
-        
+
         # NA-ify relative non-stationarity for wind components
         u.rns[block] <- NA;
         v.rns[block] <- NA;
         w.rns[block] <- NA;
-        
+
         # NA-ify Foken non-steadiness
         uu.nst[block] <-  NA;
         uv.nst[block] <-  NA;
@@ -1331,11 +1331,11 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
 
       }
 
-      
+
     }
-    
+
   }
-  
+
   # Assemble output data set
   data <- data.frame(t.stamp, n.data, u.avg, u.min, u.max, v.avg, v.min, v.max, w.avg, w.min, w.max, t.avg, t.min, t.max, uu, uv, uw, vv, vw, ww, ut, vt, wt, vel, vel.max, resultant.vel, vel.sd, vel3, vel3.3, u.j, v.j, dir.sd, u.rns, v.rns, w.rns, uu.nst, uv.nst, uw.nst, vv.nst, vw.nst, ww.nst, ut.nst, vt.nst, wt.nst);
   if(exists.water) {
@@ -1450,7 +1450,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
       data$hrel.spike.count <- hrel.spike.count;
     }
   }
-  
+
   # Save manipulated data, if requested
   if(!is.null(file.dump)) {
     # Strip the final ".b" characters so that the resulting
@@ -1475,44 +1475,44 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
   );
   class(result) <- "sonic.avg.data";
   return(result);
-  
+
 }
 
 
 # Build an object of type "delay.spec" to be used as value of argument "delay"
 # in routine "average.sonic.data".
 set.delay <- function(q=NULL, c=NULL, a=NULL, m=NULL, temp=NULL, hrel=NULL) {
-  
+
   # Set delay for water
   if(!is.null(q)) { delay.q <- 0.0; }
   else if(class(q)=="numeric") { delay.q <- q; }
   else { delay.q <- 0.0; }
-  
+
   # Set delay for carbon dioxide
   if(!is.null(c)) { delay.c <- 0.0; }
   else if(class(c)=="numeric") { delay.c <- c; }
   else { delay.c <- 0.0; }
-  
+
   # Set delay for ammonia
   if(!is.null(a)) { delay.a <- 0.0; }
   else if(class(a)=="numeric") { delay.a <- a; }
   else { delay.a <- 0.0; }
-  
+
   # Set delay for methane
   if(!is.null(m)) { delay.m <- 0.0; }
   else if(class(m)=="numeric") { delay.m <- m; }
   else { delay.m <- 0.0; }
-  
+
   # Set delay for temperature
   if(!is.null(temp)) { delay.temp <- 0.0; }
   else if(class(temp)=="numeric") { delay.temp <- temp; }
   else { delay.temp <- 0.0; }
-  
+
   # Set delay for relative humidity
   if(!is.null(hrel)) { delay.hrel <- 0.0; }
   else if(class(hrel)=="numeric") { delay.hrel <- hrel; }
   else { delay.hrel <- 0.0; }
-  
+
   # Compose object, return it and leave
   result <- list(
     q = delay.q,
@@ -1524,28 +1524,28 @@ set.delay <- function(q=NULL, c=NULL, a=NULL, m=NULL, temp=NULL, hrel=NULL) {
   );
   class(result) <- "delay.spec";
   return(result);
-  
+
 }
 
 
 # Average a sonic file set
 average.sonic.file.set <- function(
-  dir.name=".",
-  time.zone="UTC",
-  shift=0,
-  averaging.time=30,
-  sampling.rate=10,
-  threshold=0.05,
-  delay=0.3,
-  trend.removal="none",
-  spike.detection.threshold=3,
-  spike.treatment="set.na",
-  min.fraction.valid=0.75,
-  min.valid.data=2,
-  save.modified.raw.data=FALSE,
-  verbose=FALSE
+    dir.name=".",
+    time.zone="UTC",
+    shift=0,
+    averaging.time=30,
+    sampling.rate=10,
+    threshold=0.05,
+    delay=0.3,
+    trend.removal="none",
+    spike.detection.threshold=3,
+    spike.treatment="set.na",
+    min.fraction.valid=0.75,
+    min.valid.data=2,
+    save.modified.raw.data=FALSE,
+    verbose=FALSE
 ) {
-  
+
   # Get list of data files in directory and extract base time stamps from them
   file.list <- enumerate.sonic.csv(dir.name, generate.full.path.names=TRUE);
   n <- length(file.list);
@@ -1559,7 +1559,7 @@ average.sonic.file.set <- function(
   for(idx in 1:n) {
     t.s[idx] <- time.stamp.from.name(file.list[idx], time.zone, shift, verbose);
   }
-  
+
   # Iteratively read data, process them and append results to data frame
   first <- TRUE;
   e <- NULL;
@@ -1614,9 +1614,9 @@ average.sonic.file.set <- function(
         if(verbose) print(paste("Data file", file.list[idx], "has been rejected because of insufficient data", sep=" "));
       }
     }
-    
+
   }
-  
+
   # Leave
   result <- list(
     data            = e,
@@ -1630,7 +1630,7 @@ average.sonic.file.set <- function(
   );
   class(result) <- "sonic.avg.data";
   return(result);
-  
+
 }
 
 
@@ -1644,13 +1644,13 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
     return(NULL);
   }
   # Post condition: parameters make sense, may go on
-  
+
   # Check which scalar fluxes exist
   is.h2o <- !is.null(d$data$q.avg);
   is.co2 <- !is.null(d$data$c.avg);
   is.nh3 <- !is.null(d$data$a.avg);
   is.ch4 <- !is.null(d$data$m.avg);
-  
+
   # Pre-allocate workspace
   n <- length(d$data$t.stamp);
   rot.theta <- numeric(n);
@@ -1691,12 +1691,12 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
     vm.rot  <- numeric(n);
     wm.rot  <- numeric(n);
   }
-  
+
   if(mode == "eddy.covariance" | mode == "eddy.covariance.3") {
-  
+
     # Main loop: iterate over all averages
     for(item in 1:length(d$data$t.stamp)) {
-      
+
       # Form relevant matrices
       wind.avg   <- matrix(data=c(d$data$u.avg[item], d$data$v.avg[item], d$data$w.avg[item]), nrow=3, ncol=1, byrow=TRUE);
       wind.cov   <- matrix(data=c(d$data$uu[item], d$data$uv[item], d$data$uw[item], d$data$uv[item], d$data$vv[item], d$data$vw[item], d$data$uw[item], d$data$vw[item], d$data$ww[item]), nrow=3, ncol=3, byrow=TRUE);
@@ -1713,10 +1713,10 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
       if(is.ch4) {
         wind.m.cov <- matrix(data=c(d$data$um[item], d$data$vm[item], d$data$wm[item]), nrow=3, ncol=1, byrow=TRUE);
       }
-      
+
       # Store first rotation angle, for reference
       rot.theta[item] <- atan2(wind.avg[2], wind.avg[1])*180/pi;
-      
+
       # Build and apply first rotation matrix
       denom <- sqrt(d$data$u.avg[item]^2 + d$data$v.avg[item]^2);
       if(!is.null(denom) && !is.na(denom) && denom > 1.e-3) {
@@ -1743,10 +1743,10 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
       if(is.ch4) {
         wind.m.cov <- R01 %*% wind.m.cov;
       }
-      
+
       # Store second rotation angle, for further reference
       rot.phi[item] <- atan2(wind.avg[3], sqrt(wind.avg[1]^2 + wind.avg[2]^2))*180/pi;
-      
+
       # Build and apply second rotation matrix
       denom <- sqrt(wind.avg[1]^2 + wind.avg[3]^2);
       if(!is.null(denom) && !is.na(denom) && denom > 1.e-3) {
@@ -1773,10 +1773,10 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
       if(is.ch4) {
         wind.m.cov <- R12 %*% wind.m.cov;
       }
-      
+
       # Build and apply third rotation matrix, if requested
       if(mode == "eddy.covariance.3") {
-        
+
         delta <- 0.5*atan2(2.*wind.cov[2,3], wind.cov[2,2] - wind.cov[3,3]);
         delta[(abs(delta*180/pi) > third.rotation.angular.threshold)] <- 0.0; # Suppress rotation exceeding desired threshold angle
         sin.d <- sin(delta);
@@ -1797,15 +1797,15 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
         if(is.ch4) {
           wind.m.cov <- R23 %*% wind.m.cov;
         }
-        
+
       }
       else {
         delta <- 0.0;
       }
-      
+
       # Store third rotation angle, for future reference
       rot.psi[item] <- delta*180/pi;
-      
+
       # Reassemble result
       u.avg.rot[item] <- wind.avg[1];
       v.avg.rot[item] <- wind.avg[2];
@@ -1839,17 +1839,17 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
         vm.rot[item]    <- wind.m.cov[2];
         wm.rot[item]    <- wind.m.cov[3];
       }
-      
+
     }
   }
-  
+
   else if(mode == "planar.fit") {
-    
+
     # Get wind averages, in non rotated frame
     u <- d$data$u.avg;
     v <- d$data$v.avg;
     w <- d$data$w.avg;
-    
+
     # Estimate best fitting plane by linear least squares; the resulting plane
     # has equation
     #
@@ -1860,7 +1860,7 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
     b0 <- plane$coefficients[1];
     b1 <- plane$coefficients[2];
     b2 <- plane$coefficients[3];
-    
+
     # Compute plane-derived rotation matrices
     denom.beta  <- sqrt(b1^2+b2^2+1);
     denom.gamma <- sqrt(b2^2+1);
@@ -1871,10 +1871,10 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
     R12 <- matrix(c(cos.beta, 0, sin.beta, 0, 1, 0, -sin.beta, 0, cos.beta), nrow=3, ncol=3, byrow=TRUE);
     R23 <- matrix(c(1, 0, 0, 0, cos.gamma, sin.gamma, 0, -sin.gamma, cos.gamma), nrow=3, ncol=3, byrow=TRUE);
     R13 <- R23 %*% R12;
-    
+
     # Main loop: iterate over all averages
     for(item in 1:length(t.stamp)) {
-      
+
       # Form relevant matrices
       wind.avg   <- matrix(data=c(d$data$u.avg[item], d$data$v.avg[item], d$data$w.avg[item]), nrow=3, ncol=1, byrow=TRUE);
       wind.cov   <- matrix(data=c(d$data$uu[item], d$data$uv[item], d$data$uw[item], d$data$uv[item], d$data$vv[item], d$data$vw[item], d$data$uw[item], d$data$vw[item], d$data$ww[item]), nrow=3, ncol=3, byrow=TRUE);
@@ -1891,7 +1891,7 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
       if(is.ch4) {
         wind.m.cov <- matrix(data=c(d$data$um[item], d$data$vm[item], d$data$wm[item]), nrow=3, ncol=1, byrow=TRUE);
       }
-      
+
       # Apply plane-derived rotation matrix
       wind.avg <- R13 %*% wind.avg;
       wind.cov <- R13 %*% wind.cov %*% t(R13);
@@ -1908,7 +1908,7 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
       if(is.ch4) {
         wind.m.cov <- R13 %*% wind.m.cov;
       }
-      
+
       # Build and apply data item specific matrix
       alpha <- atan2(wind.avg[2],wind.avg[1]);
       sin.alpha <- sin(alpha);
@@ -1929,9 +1929,9 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
       if(is.ch4) {
         wind.m.cov <- S %*% wind.m.cov;
       }
-      
+
       # Note: Third rotation intentionally not performed (for now)
-      
+
       # Reassemble result
       u.avg.rot[item] <- wind.avg[1];
       v.avg.rot[item] <- wind.avg[2];
@@ -1965,101 +1965,101 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
         vm.rot[item]    <- wind.m.cov[2];
         wm.rot[item]    <- wind.m.cov[3];
       }
-      
+
       # Store rotation angles, for further reference
       rot.alpha[item] <- alpha;
       rot.beta[item]  <- beta;
       rot.gamma[item] <- gamma;
     }
-    
+
   }
-  
+
   #########################
   # Compute basic indices #
   #########################
-  
+
   # Compute wind provenance direction (useful to classify data)
   Dir <- atan2(-d$data$u.avg,-d$data$v.avg) * 180/pi;
   Dir.negative <- !is.na(Dir) & Dir < 0;
   Dir[Dir.negative] <- Dir[Dir.negative] + 360.0;
-  
+
   # Compute air density from sonic temperature
   Ta <- d$data$t.avg + 273.15;
   Pa <- 1013.0 * exp(-0.0342*station.altitude/Ta);
   Rho.d <- 348.4*Pa/Ta;   # Density of dry air [g/m3]
   RhoCp <- 350.25*Pa/Ta;
-  
+
   # Friction velocity, according to the signless definition
   u.star <- (uw.rot^2 + vw.rot^2)^0.25;
-  
+
   # Sonic H0
   H0.v <- RhoCp * wt.rot;  # This is not the "sensible heat flux", but rather the "Surface Buoyancy Flux"
-  
+
   # Obukhov length
   L <- -Ta / (0.4*9.81) * u.star^3/wt.rot;
-  
+
   # Stability parameter
   z.over.L <- anemometer.height / L;
-  
+
   # Scale temperature
   T.star <- -wt.rot / u.star;
 
   ####################################
   # Perform WPL correction of fluxes #
   ####################################
-  
+
   # For WPL correction to be performed water must be measured
   if(is.h2o) {
-  
+
     # Useful constants
     MOL.H2O <- 18.0153;  # Molar weight of water (g/mol)
     MOL.CO2 <- 44.0100;  # Molar weight of carbon dioxide (g/mol)
     MOL.NH3 <- 17.0305;  # Molar weight of ammonia (g/mol)
     MOL.CH4 <- 16.0425;  # Molar weight of methane (g/mol)
     MOL.Air <- 28.96;    # Molar weight of dry air (g/mol)
-    
+
     # Air molar concentration
     c.d <- 1000.0*Rho.d/MOL.Air;   # [g/m3] / [g/mmol] = [g/m3] * [mmol/g] = [mmol/m3]
-    
+
     # Water specific processing
     q.d <- d$data$q.avg / c.d;                             # Adimensional ratio
     c.dv <- c.d + d$data$q.avg;                            # Molar concentration of moist air [mmol/m3]
     t.c <- c.dv*wt.rot/Ta;                                 # [mmol/m3] [m K/s] / [K] = [mmol/(m2 s)]
     Fq.molar <- wq.rot + q.d * (t.c + wq.rot);             # [mmol/(m2 s)]
     Fq.mass  <- MOL.H2O*Fq.molar;                          # [mg/(m2 s)]
-    
+
     # Thermal effect correction (Schotanus)
     mix.factor <- MOL.H2O/Rho.d/1000;
     wt.cor     <- wt.rot - 0.51*mix.factor*Ta*wq.rot;
     H0         <- RhoCp * wt.cor;
-    
+
     # Latent heat
     lambda     <- 2500.8 - 2.36*d$data$t.avg + 0.0016*d$data$t.avg^2 - 0.00006*d$data$t.avg^3;  # Latent condensation heat foe water [J/g] (temperature in °C)
     He         <- lambda/1000 * Fq.mass;
-    
+
     # Carbon dioxide specific processing
     if(is.co2) {
       q.c <- d$data$c.avg / c.d;                           # Adimensional ratio
       Fc.molar <- wc.rot + q.c * (t.c + wc.rot);           # [mmol/(m2 s)]
       Fc.mass  <- MOL.CO2*Fc.molar;                        # [mg/(m2 s)]
     }
-    
+
     # Ammonia specific processing
     if(is.nh3) {
       q.a <- d$data$a.avg / c.d;                           # Adimensional ratio
       Fa.molar <- wa.rot + q.a * (t.c + wa.rot);           # [mmol/(m2 s)]
       Fa.mass  <- MOL.NH3*Fa.molar;                        # [mg/(m2 s)]
     }
-    
+
     # Methane specific processing
     if(is.ch4) {
       q.m <- d$data$m.avg / c.d;                           # Adimensional ratio
       Fm.molar <- wm.rot + q.m * (t.c + wm.rot);           # [mmol/(m2 s)]
       Fm.mass  <- MOL.CH4*Fm.molar;                        # [mg/(m2 s)]
     }
-    
+
   }
-  
+
   # Assemble final data frame
   e <- d$data;
   if(mode == "eddy.covariance" | mode == "eddy.covariance.3") {
@@ -2119,7 +2119,7 @@ eddy.covariance <- function(d, station.altitude, anemometer.height=10, mode="edd
   if(is.ch4) {
     e$wm.rot <- wm.rot;  # [mmol/(m2 s)]
   }
-  
+
   # Leave
   result <- list(
     data              = e,
@@ -2152,11 +2152,11 @@ lstab <- function(L,z0) {
   XL <- function(Y,XM,B) {
     return(XM/(log(Y)-B));
   }
-  
+
   # Ensure z0 to be within common range
   z0 <- min(c(z0,0.5));
   z0 <- max(c(z0,0.01));
-  
+
   # Build separation lines
   unstable.set <- c(
     XL(z0,-70.0,4.35),
@@ -2167,7 +2167,7 @@ lstab <- function(L,z0) {
     XL(z0,-70.0,0.295),
     XL(z0,-327.,0.627)
   );
-  
+
   # Classify stability depending on L
   istab <- integer(length(L));
   unstable.data <- which(L < 0);
@@ -2178,7 +2178,7 @@ lstab <- function(L,z0) {
   istab.stable   <- approxfun(x=stable.set,   y=c(5,4),   yleft=6, yright=4, method="constant");
   istab[unstable.data] <- istab.unstable(unstable.L);
   istab[stable.data]   <- istab.stable(stable.L);
-  
+
   # Yield result and return
   return(istab);
 }
@@ -2201,12 +2201,12 @@ psi.m <- function(z.over.L) {
 # Surface roughness rough estimate
 
 estimate.z0<-function(ed, time.stamp.from=NULL, time.stamp.to=NULL, verbose=FALSE){
-  
+
   if(class(ed) != "sonic.eddy.cov.data") {
     if(verbose) print("estimate.z0:: error: Input not of type 'sonic.eddy.cov.data'");
     return(NULL);
   }
-  
+
   # Ensure proper ordering of selector dates
   if(!is.null(time.stamp.from) & !is.null(time.stamp.to)) {
     if(time.stamp.from > time.stamp.to) {
@@ -2215,7 +2215,7 @@ estimate.z0<-function(ed, time.stamp.from=NULL, time.stamp.to=NULL, verbose=FALS
       time.stamp.to   <- temp.time.stamp;
     }
   }
-  
+
   # Select useful data
   if(!is.null(time.stamp.from) & !is.null(time.stamp.to)) {
     ed$data <- ed$data[time.stamp.from <= ed$data$t.stamp & ed$data$t.stamp <= time.stamp.to,];
@@ -2227,17 +2227,17 @@ estimate.z0<-function(ed, time.stamp.from=NULL, time.stamp.to=NULL, verbose=FALS
   vel          <- ed$data$vel;
   u.star       <- ed$data$u.star;
   n.data       <- length(L);
-  
+
   # Prepare estimate of surface roughness by computing its tributaries
   z.over.L     <- z / L;
   U.over.ustar <- vel / u.star;
-  
+
   # Restrict z/L to the range where validity of wind similarity function has been
   # verified experimentally (Beljaars, Holtslag, "Flux parameterization over land surfaces for
   # atmospheric models", J. Appl. Meteorol., 30, pp.327-341, 1991)
   z.over.L[z.over.L < (-2)] <- NA;
   z.over.L[z.over.L >   10] <- NA;
-  
+
   # Estimate aerodynamic roughness length from SL similarity
   U.over.ustar[u.star<0.03] <- NA; # Exclude unrealistic values from z0 estimation
   U.over.ustar[u.star>1   ] <- NA;
@@ -2245,14 +2245,14 @@ estimate.z0<-function(ed, time.stamp.from=NULL, time.stamp.to=NULL, verbose=FALS
   indicator[indicator < 0] <- NA;
   z0.mean     <- z/exp(median(indicator,na.rm=TRUE));
   if(is.null(z0)) z0 <- z0.mean;
-  
+
   # Build directional median of surface roughness
   indicator.d <- dir.mean(dir, indicator, confidence="none");
   z0.d        <- data.frame(
     dir   = indicator.d$c.dir,
     value = z/exp(indicator.d$median)
   );
-  
+
   # Assemble and yield result
   result <- list(
     time.stamp.from   = time.stamp.from,
@@ -2262,7 +2262,7 @@ estimate.z0<-function(ed, time.stamp.from=NULL, time.stamp.to=NULL, verbose=FALS
   );
   class(result) <- "z0.estimates";
   return(result);
-  
+
 }
 
 
@@ -2296,18 +2296,18 @@ estimate.z0<-function(ed, time.stamp.from=NULL, time.stamp.to=NULL, verbose=FALS
 # the paper results.
 #
 air.quality<-function(ed, lat, lon, zone, time.zone="UTC", z0=0.023, h0.threshold=10, N=0.012, Gamma.A=3, Gamma.B=1.98e-3, Gamma.C=2.27e-6, GB.initialization="zero", verbose=FALSE){
-  
+
   #######################
   # Auxiliary functions #
   #######################
-  
+
   # -- Gryning-Batchvarova convective mixing height determination ---
-  
+
   g <- function(z, Gamma.A, Gamma.B, Gamma.C) {
     out <- Gamma.A/(z+1) - Gamma.B + Gamma.C*z;
     return(out);
   }
-  
+
   gry.bat <- function(t, zi, parms) {
     out <- list(
       c(
@@ -2316,39 +2316,39 @@ air.quality<-function(ed, lat, lon, zone, time.zone="UTC", z0=0.023, h0.threshol
     );
     return(out);
   }
-  
+
   ####################
   # Useful constants #
   ####################
-  
+
   G <- 9.81;  # Gravity contant
-  
+
   ###############
   # Actual code #
   ###############
-  
+
   if(class(ed) != "sonic.eddy.cov.data") {
     if(verbose) print("air.quality:: error: Input not of type 'sonic.eddy.cov.data'");
     return(NULL);
   }
-  
+
   # Coriolis parameter
   f <- 2*7.29e-5*sin(lat*pi/180);
-  
+
   # Select useful data
   time.stamp   <- ed$data$t.stamp;
   wt           <- ed$data$wt.rot;
   L            <- ed$data$L;
   dir          <- ed$data$Dir;
   u.star       <- ed$data$u.star;
-  T            <- ed$data$t.avg; 
+  T            <- ed$data$t.avg;
   H0           <- ed$data$H0.v;
   Ta           <- (T+273.15);
   avg.time     <- ed$averaging.time;
   z            <- ed$anemometer.height;
   date         <- substr(time.stamp,6,10);
   n.data       <- length(L);
-  
+
   # Preallocate output vectors (this will spare R a lot of behind-the-scenes work)
   a              <- rep(NA, times=n.data);
   b1             <- rep(NA, times=n.data);
@@ -2361,14 +2361,14 @@ air.quality<-function(ed, lat, lon, zone, time.zone="UTC", z0=0.023, h0.threshol
   zi.neutral     <- rep(NA, times=n.data);
   zi.mechanical  <- rep(NA, times=n.data);
   zi.mech.stable <- rep(NA, times=n.data);
-  
+
   # Classify situations based on turbulent flux of sensible heat; the "h0.threshold" value
   # is a non-negative value whose default, 0, excludes neutral cases. Sensible determination
   # of threshold should be made on a site basis.
   stable     <- which(H0 < (-h0.threshold));
   neutral    <- which(abs(H0) <= h0.threshold);
   convective <- which(H0 > h0.threshold);
-  
+
   # Compute the main terms of diagnostic-only Zilitinkevich parameterization
   # and assemble them to equilibrium height equation. Once this has been found,
   # solve it and form stable part.
@@ -2378,13 +2378,13 @@ air.quality<-function(ed, lat, lon, zone, time.zone="UTC", z0=0.023, h0.threshol
   b3[stable] <-(sqrt(abs((9.807*wt[stable]*f)/Ta[stable]))/(1.7*u.star[stable]));
   b[stable]  <- b1[stable]+b2[stable]+b3[stable];
   for(k in stable) zi.stable[k] <- max(Re(polyroot(c(-1,b[k],a[k]))));
-  
+
   # Estimate the mechanical only mixing height using "u.star" parameterization.
   # Warning: the coefficient 1330 should in reality depend on Coriolis parameter;
   # ======== in this edition we don't care. In some next version, dependence will
   #          be made explicit.
   zi.mechanical <- 1330*u.star;
-  
+
   # Compose the "mechanical basis" of mixing height by assuming Zilitinkevich
   # parameterization in stable hours, and mechanical "ustar" parameterization
   # on all neutral and convective situations.
@@ -2392,7 +2392,7 @@ air.quality<-function(ed, lat, lon, zone, time.zone="UTC", z0=0.023, h0.threshol
   zi.mech.stable[stable] <- zi.stable[stable];
   # Post-condition: "zi.mech.stable" is (or better, "should be") defined for all hours,
   # and not only the stable ones as pure Zilitinkevich method would.
-  
+
   # Gryning-Batchvarova model, applied to all convective block of day. This
   # section is composed by two nested loops, an outer one iterating over days
   # and an inner one running GB equation on actual inner part.
@@ -2440,7 +2440,7 @@ air.quality<-function(ed, lat, lon, zone, time.zone="UTC", z0=0.023, h0.threshol
       }
     }
   }
-  
+
   # Build final mixing height as maximum between "stable-mechanical" and convective, where the latter exists.
   zi <- zi.mech.stable;
   for(k in 1:n.data) {
@@ -2448,16 +2448,16 @@ air.quality<-function(ed, lat, lon, zone, time.zone="UTC", z0=0.023, h0.threshol
       zi[k] <- max(c(zi.mech.stable[k], zi.convective[k]));
     }
   }
-  
+
   # Compute Deardoff velocity
   w.star <- numeric(length(n.data));
   w.star <- ifelse(!is.na(H0) & H0>0, (G/Ta * zi * ed$data$wt.rot)^(1/3), 0.)
   #w.star[H0 <= 0] <- 0.;
   #w.star[H0 > 0]  <- (G/Ta[H0 > 0] * zi[H0 > 0] * ed$data$wt.rot[H0 > 0])^(1/3);
-  
+
   # Estimate stability categories using Golder (1972) method as from CtDM+ "LSTAB" function
   stability <- lstab(ed$data$L, z0);
-  
+
   # Determine day-, night- and transitionary character of any time
   diy <- day.in.year(time.stamp, time.zone);
   split.time <- as.POSIXlt(time.stamp, tz=time.zone);
@@ -2466,7 +2466,7 @@ air.quality<-function(ed, lat, lon, zone, time.zone="UTC", z0=0.023, h0.threshol
   lat.rad <- lat*pi/180;
   lon.rad <- lon*pi/180;
   sine.solar.elevation <- sin(lat.rad)*sin(solar.declination) - cos(lat.rad)*cos(solar.declination)*cos(pi*(hour - zone)/12 - lon.rad);
-  
+
   # Assemble and yield result
   data.out <- data.frame(ed$data, zi, zi.convective, zi.stable, zi.mechanical, w.star, stability, solar.declination, sine.solar.elevation);
   result <- list(
@@ -2491,17 +2491,17 @@ air.quality<-function(ed, lat, lon, zone, time.zone="UTC", z0=0.023, h0.threshol
   );
   class(result) <- "air.quality";
   return(result);
-  
+
 }
 
 
 export.air.quality <- function(a, file, verbose=FALSE) {
-  
+
   if(class(a) != "air.quality") {
     if(verbose) print("export.air.quality:: error: Input not of type 'air.quality'");
     return(NULL);
   }
-  
+
   d <- a$data;
   for(i in 2:ncol(d)) {
     na.pos <- which(is.na(d[,i]));
@@ -2509,11 +2509,11 @@ export.air.quality <- function(a, file, verbose=FALSE) {
       d[na.pos,i] <- -9999;
     }
   }
-  
+
   write.csv(d, file=file, row.names=FALSE);
-  
+
   return(d);
-  
+
 }
 
 
@@ -2525,7 +2525,7 @@ export.air.quality <- function(a, file, verbose=FALSE) {
 # "sonic.raw.data" passed on input, using a "thin line" representation more helpful
 # to us than the usual bargraph used for econometric time series.
 show.acf <- function(d, variable="w", depth=0.5, pdf="", width=5, height=4, verbose=FALSE) {
-  
+
   # Input:
   #
   #   d            An object of type "sonic.raw.data"
@@ -2558,13 +2558,13 @@ show.acf <- function(d, variable="w", depth=0.5, pdf="", width=5, height=4, verb
   #
   #   A vector, containing ACF values at each lag considered. Just for reference.
   #
-  
+
   # Check the type of "d" to be OK
   if(class(d) != "sonic.raw.data") {
     if(verbose) print("show.acf:: error: Input parameter 'd' is not an object of type 'sonic.raw.data'");
     return(NULL);
   }
-  
+
   # How many lags to include?
   if(!is.numeric(depth) | depth < 0 | depth > 1) {
     if(verbose) print("show.acf:: error: Invalid parameter 'depth': non numeric, or not in interval [0,1]");
@@ -2575,7 +2575,7 @@ show.acf <- function(d, variable="w", depth=0.5, pdf="", width=5, height=4, verb
     if(verbose) print("show.acf:: error: Maximum desired lag less than 2; check 'd' contains some data, and 'depth' to be not too small");
     return(NULL);
   }
-  
+
   # Get the appropriate variable
   if(variable=="u") {
     x <- d$data$u;
@@ -2633,12 +2633,12 @@ show.acf <- function(d, variable="w", depth=0.5, pdf="", width=5, height=4, verb
   }
   # Post-condition: Variable name is OK (that is, belongs to data set 'd'), and
   # all its contents has been read into vector 'x'.
-  
+
   # Redirect output to PDF file, if desired
   if(pdf != "") {
     pdf(file=pdf, width=width, height=height);
   }
-  
+
   # Compute autocorrelation values and plot them
   acf.x <- acf(x, lag.max=max.lag, plot=FALSE, na.action=na.exclude);
   acor <- acf.x$acf;
@@ -2647,21 +2647,21 @@ show.acf <- function(d, variable="w", depth=0.5, pdf="", width=5, height=4, verb
     y=acor,
     type="l",
     xlab="lag (s)",
-    ylab=paste("ACF(", variable, ")", sep=""), 
+    ylab=paste("ACF(", variable, ")", sep=""),
     ylim=c(0,1)
-    );
-  
+  );
+
   # Plot a reference line at 0 to help detecting zero.crosses
   abline(a=0, b=0, col="blue");
-  
+
   # Disconnect from PDF and close it, if required
   if(pdf != "") {
     dev.off();
   }
-  
+
   # Leave
   return(acor);
-  
+
 }
 
 
@@ -2671,7 +2671,7 @@ show.acf <- function(d, variable="w", depth=0.5, pdf="", width=5, height=4, verb
 
 # Directional mean of a value.
 dir.mean <- function(dir, val, width=11.25, step=1, confidence="boot", boot.size=1000, conf.level=0.95) {
-  
+
   # Inputs:
   #
   #  dir:  Vector containing measured directions (degrees from N)
@@ -2687,7 +2687,7 @@ dir.mean <- function(dir, val, width=11.25, step=1, confidence="boot", boot.size
   #
   #  An object of type 'dir.stat'.
   #
-  
+
   # Main loop: Iterate over steps
   rng <- seq(from=0, to=360-step, by=step);
   n   <- length(rng);
@@ -2704,7 +2704,7 @@ dir.mean <- function(dir, val, width=11.25, step=1, confidence="boot", boot.size
   c95.sup <- numeric(n);
   i <- 1;
   for(d in rng) {
-    
+
     # Build lower and upper class limits, in real form. Once
     # defined, convert them to modular form (this, by using
     # the auxiliary boolean "splitted" which, if TRUE, indicates
@@ -2719,7 +2719,7 @@ dir.mean <- function(dir, val, width=11.25, step=1, confidence="boot", boot.size
     if(splitted.high) {
       d.max <- d.max - 360;
     }
-    
+
     # Select data in current class
     if(splitted.low || splitted.high) {
       idx <- dir >= d.min | dir <= d.max;
@@ -2729,7 +2729,7 @@ dir.mean <- function(dir, val, width=11.25, step=1, confidence="boot", boot.size
     }
     idx <- idx[!is.na(idx)];
     val.d <- val[idx];
-    
+
     # Compute numerosity, average, standard deviation, and other stats
     center.dir[i] <- d;
     if(!is.null(val.d)) {
@@ -2771,11 +2771,11 @@ dir.mean <- function(dir, val, width=11.25, step=1, confidence="boot", boot.size
       c95.inf[i] <- NA;
       c95.sup[i] <- NA;
     }
-    
+
     i <- i+1;
-    
+
   }
-  
+
   # Restitute results
   rsl <- list(
     dir     = dir,
@@ -2795,19 +2795,19 @@ dir.mean <- function(dir, val, width=11.25, step=1, confidence="boot", boot.size
   );
   class(rsl) <- "dir.stat";
   return(rsl);
-  
+
 }
 
 
 plot.dir.mean <- function(d.m, min.val, max.val, col="black", add=FALSE, conf.limits=FALSE, verbose=FALSE) {
-  
+
   # Check input parameters
   if(class(d.m) != "dir.stat") {
     if(verbose) print("plot.dir.mean:: error: Data not an object of type 'dir.mean'");
     return(NULL);
   }
   # Post condition: parameters make sense, may go on
-  
+
   # Plot directional mean
   angles <- seq(from=0, to=345, by=15);
   polar.plot(
@@ -2855,14 +2855,14 @@ plot.dir.mean <- function(d.m, min.val, max.val, col="black", add=FALSE, conf.li
 
 
 plot.dir.num <- function(d.m, col="black", add=FALSE, verbose=FALSE) {
-  
+
   # Check input parameters
   if(class(d.m) != "dir.stat") {
     if(verbose) print("plot.dir.mean:: error: Data not an object of type 'dir.mean'");
     return(NULL);
   }
   # Post condition: parameters make sense, may go on
-  
+
   # Plot directional numerosity
   angles <- seq(from=0, to=345, by=15);
   num <- d.m$n.class;
@@ -2880,7 +2880,7 @@ plot.dir.num <- function(d.m, col="black", add=FALSE, verbose=FALSE) {
     lwd=3,
     add=add
   );
-  
+
 }
 
 mean.boot <- function(data, indices) {
@@ -2897,13 +2897,13 @@ mean.boot <- function(data, indices) {
 # residual of a signal (most typically, an output from
 # eddy covariance or averaging).
 typical.period.generic <- function(t.stamp, signal, avg.period=3600, length=86400) {
-  
+
   sum.idx <- (as.integer(t.stamp) %/% avg.period) %% (length %/% avg.period);
   d<-data.frame(t.stamp, signal, sum.idx);
   avg <- aggregate(d, by=list(idx=sum.idx), mean, na.action=na.exclude);
-  
+
   return(avg$signal);
-  
+
 }
 
 ##########################################
@@ -2911,23 +2911,23 @@ typical.period.generic <- function(t.stamp, signal, avg.period=3600, length=8640
 ##########################################
 
 signal.spectrum <- function(x, sampling.rate=10) {
-  
+
   # Check if some data is missing. If so, use periodogram method to estimate
   # spectrum. If no missing data exist use a less expensive FFT instead, and get
   # the true discrete spectrum.
   if(any(is.na(x))) {
-    
+
     # Build spectrum estimate using periodogram method
     n <- length(x); # NA values included
     x.ts <- ts(data=x, start=0, end=(n-1)/sampling.rate, frequency=sampling.rate);
     s.x <- spectrum(x.ts, na.action=na.exclude, plot=FALSE);
-    
+
     # Gather values to complete output record
     f <- s.x$freq * sampling.rate;
     s <- s.x$spec;
     nyquist <- sampling.rate/2;
     time <- (0:(length(x)-1))/sampling.rate
-    
+
     # Build output
     out <- list(
       type      = "estimate",
@@ -2938,12 +2938,12 @@ signal.spectrum <- function(x, sampling.rate=10) {
       frequency = f,
       s         = s
     );
-    
+
   }
   else {
-    
+
     # All data present: use FFT and get the true discrete spectrum
-    
+
     # Compute frequencies at various indices, assuming maximum frequency to coincide with
     # Nyquist frequency of signal, itself equal to 1/2 the data sampling rate.
     n <- length(x);
@@ -2957,10 +2957,10 @@ signal.spectrum <- function(x, sampling.rate=10) {
     nyquist <- sampling.rate / 2;
     f.step <- nyquist / m;
     f <- f.step * f;
-    
+
     # Now build the complex spectral values
     s <- fft(x)/n;
-    
+
     # Build output
     out <- list(
       type      = "full",
@@ -2971,23 +2971,23 @@ signal.spectrum <- function(x, sampling.rate=10) {
       frequency = f,
       s         = s
     );
-    
+
   }
-  
+
   # Transmit results and quit
   class(out) <- "data.spectrum";
   return(out);
-  
+
 }
 
 
 signal.smooth <- function(sp, cut.in.frequency, verbose=FALSE) {
-  
+
   if(class(sp) != "data.spectrum") {
     if(verbose) print("signal.smooth:: error: Input data not of type 'data.spectrum'");
     return(NULL);
   }
-  
+
   if(sp$type == "full") {
     f <- sp$frequency;
     s <- sp$s;
@@ -3003,45 +3003,45 @@ signal.smooth <- function(sp, cut.in.frequency, verbose=FALSE) {
 
 
 power.spectrum <- function(sp) {
-  
+
   if(class(sp) != "data.spectrum") {
     if(verbose) print("power.spectrum:: error: Input data not of type 'data.spectrum'");
     return(NULL);
   }
-  
+
   n <- sp$size;
   k <- n %/% 2;
   p <- numeric(k+1);
   p[1] <- abs(sp$s[1]); # Constant term
   for(i in 1:k) p[i] <- abs(sp$s[i+1]) + abs(sp$s[n-i+1]);
   f <- sp$frequency[1:(k+1)];
-  
+
   # Build output
   out <- list(
     frequency = f,
     power.sp  = p
   );
   class(out) <- "data.power.spectrum";
-  
+
   return(out);
-  
+
 }
 
 
 signal.cospectrum <- function(x, y, sampling.rate=10) {
-  
+
   # Ensure neither of the two signals contain missing data
   if(any(is.na(x)) | any(is.na(y))) {
     print("signal.cospectrum:: error: One or both input signals contain missing data");
     return(NULL);
   }
-  
+
   # Check both data have the same length
   if(length(x) != length(y)) {
     print("signal.cospectrum:: error: Input signals have not the same length");
     return(NULL);
   }
-  
+
   # Compute co-spectrum and quadrature spectrum
   n <- length(x);
   s.x <- fft(x)/n;
@@ -3049,7 +3049,7 @@ signal.cospectrum <- function(x, y, sampling.rate=10) {
   s.xy <- Conj(s.x) * s.y;
   cospectrum <- Re(s.xy);
   qspectrum  <- Im(s.xy);
-  
+
   # Compute frequencies
   m <- n %/% 2;
   if(n %% 2 == 0) {
@@ -3061,7 +3061,7 @@ signal.cospectrum <- function(x, y, sampling.rate=10) {
   nyquist <- sampling.rate / 2;
   f.step <- nyquist / m;
   f <- f.step * f;
-  
+
   # Build output
   out <- list(
     nyquist = nyquist,
@@ -3070,47 +3070,47 @@ signal.cospectrum <- function(x, y, sampling.rate=10) {
     quadrature.spectrum = qspectrum
   );
   class(out) <- "data.cospectrum";
-  
+
   # Return data and leave
   return(out);
-  
+
 }
 
 
 plot.spectrum <- function(pspc) {
-  
+
   if(class(sp) != "data.power.spectrum") {
     if(verbose) print("plot.spectrum:: error: Input data not of type 'data.power.spectrum'");
     return(NULL);
   }
-  
+
   # Compute the normalized power spectrum
   f <- pspc$frequency[pspc$frequency>0 & pspc$power.sp > 0];
   p <- pspc$power.sp[pspc$frequency>0 & pspc$power.sp > 0];
   plot(f, f*p, type="l", log="xy", xlab="Frequency (Hz)", ylab="fS");
-  
+
 }
 
 
 plot.cospectrum <- function(cspc, ogive=FALSE) {
-  
+
   if(class(sp) != "data.cospectrum") {
     if(verbose) print("plot.cospectrum:: error: Input data not of type 'data.cospectrum'");
     return(NULL);
   }
-  
+
   # Compute the normalized cospectrum
   f  <- cspc$frequency[cspc$frequency>0];
   co <- cspc$co.spectrum[cspc$frequency>0];
   fc <- abs(f) * co;
-  
+
   # Sort data of normalized cospectrum by absolute frequency, and sum-aggregate by equal abs frequency
   n <- length(co);
   m <- n %/% 2;
   cc <- numeric(m);
   ff <- f[1:m];
   for(i in 1:m) cc[i] <- fc[i] + fc[n-i+1];
-  
+
   # Plot data
   plot(ff,cc,xlab="Frequency (Hz)", ylab="Co-Spectrum", type="l", log="x", xlim=c(max(ff),min(ff)));
   if(ogive) {
@@ -3119,7 +3119,7 @@ plot.cospectrum <- function(cspc, ogive=FALSE) {
     plot(ff,og,log="x",type="l",xlim=c(max(ff),min(ff)),col="blue",axes=FALSE,xlab="",ylab="");
     axis(4);
   }
-  
+
 }
 
 
@@ -3159,7 +3159,7 @@ relative.nonstationarity <- function(x,y) {
 
 # Get list of CSV files in a given directory (inclusive of non-SonicLib files, if any)
 enumerate.sonic.csv <- function(dir.name = ".", generate.full.path.names=TRUE) {
-  
+
   # Input:
   #
   #   dir.name                  Name of directory where to look for CSV files (default: ".")
@@ -3170,17 +3170,20 @@ enumerate.sonic.csv <- function(dir.name = ".", generate.full.path.names=TRUE) {
   # Output:
   #
   #   character vector, containing the list requested; may be an empty vector
-  
+
   f.list <- dir(path=dir.name, pattern="*[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9].[0-2][0-9].csv", full.names=generate.full.path.names);
+  if(length(f.list) <= 0) {
+    f.list <- dir(path=dir.name, pattern="*[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9].[0-2][0-9]R.csv", full.names=generate.full.path.names);
+  }
   return(f.list);
-  
+
 }
 
 
 # Given a SonicLib raw data file name, this routine returns its corresponding
 # time stamp
 time.stamp.from.name <- function(file.name, time.zone="UTC", shift=0, verbose=FALSE) {
-  
+
   # Input:
   #
   #   file.name    File name from which to extract the time stamp (no default)
@@ -3198,7 +3201,7 @@ time.stamp.from.name <- function(file.name, time.zone="UTC", shift=0, verbose=FA
   #
   #   The time stamp, encoded as a POSIXct value, if the conversion was possible; NULL otherwise
   #
-  
+
   # Parse date and time from name
   str.len <- nchar(file.name);
   year  <- as.integer(substr(file.name, start=str.len-14, stop=str.len-11));
@@ -3206,15 +3209,15 @@ time.stamp.from.name <- function(file.name, time.zone="UTC", shift=0, verbose=FA
   day   <- as.integer(substr(file.name, start=str.len-8, stop=str.len-7));
   hour  <- as.integer(substr(file.name, start=str.len-5, stop=str.len-4));
   if(is.na(year) || is.na(month) || is.na(day) || is.na(hour)) return(NULL);
-  
+
   # Compose date string
   str.date <- sprintf("%4.4d-%2.2d-%2.2d %2.2d:00:00", year,month,day,hour);
-  
+
   # Convert date and time from string to numeric form, then adjust according to shift
   time.stamp <- as.POSIXct(str.date, tz=time.zone);
   time.stamp <- time.stamp + shift;
   return(time.stamp);
-  
+
 }
 
 ###############
@@ -3222,7 +3225,7 @@ time.stamp.from.name <- function(file.name, time.zone="UTC", shift=0, verbose=FA
 ###############
 
 wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6, upper.cut.speed=20, verbose=FALSE) {
-  
+
   # Check input parameters
   if(class(d) != "sonic.avg.data") {
     if(verbose) print("wind.power:: error: Data not an object of type 'sonic.avg-data'");
@@ -3233,7 +3236,7 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
     return(NULL);
   }
   # Post condition: parameters make sense, may go on
-  
+
   # Select wind belonging to desired speed interval
   if(cut.speed) {
     desired.wind <- (d$data$vel >= lower.cut.speed) & (d$data$vel <= upper.cut.speed);
@@ -3241,7 +3244,7 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
   else {
     desired.wind <- rep(TRUE, times=length(d$data$vel));
   }
-  
+
   # Exit if no wind value is in range
   n <- sum(desired.wind);
   if(n <= 0) {
@@ -3252,7 +3255,7 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
     if(verbose) print("wind.power:: error: Not enough wind data in desired interval");
     return(NULL);
   }
-  
+
   # Pre-allocate workspace
   rot.theta <- numeric(n);
   rot.phi   <- numeric(n);
@@ -3266,23 +3269,23 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
   vv.rot    <- numeric(n);
   vw.rot    <- numeric(n);
   ww.rot    <- numeric(n);
-  
+
   if(mode == "2.rotations" | mode == "3.rotations") {
-    
+
     # Main loop: iterate over all averages
     i <- 0;
     for(item in 1:length(desired.wind)) {
-      
+
       if(desired.wind[item]) {
         i <- i + 1;
-        
+
         # Form relevant matrices
         wind.avg   <- matrix(data=c(d$data$u.avg[item], d$data$v.avg[item], d$data$w.avg[item]), nrow=3, ncol=1, byrow=TRUE);
         wind.cov   <- matrix(data=c(d$data$uu[item], d$data$uv[item], d$data$uw[item], d$data$uv[item], d$data$vv[item], d$data$vw[item], d$data$uw[item], d$data$vw[item], d$data$ww[item]), nrow=3, ncol=3, byrow=TRUE);
-        
+
         # Store first rotation angle, for reference
         rot.theta[i] <- atan2(wind.avg[2], wind.avg[1])*180/pi;
-        
+
         # Build and apply first rotation matrix
         denom <- sqrt(d$data$u.avg[item]^2 + d$data$v.avg[item]^2);
         if(!is.null(denom) && !is.na(denom) && denom > 1.e-3) {
@@ -3296,10 +3299,10 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
         R01 <- matrix(c(cos.a, sin.a, 0, -sin.a, cos.a, 0, 0, 0, 1), nrow=3, ncol=3, byrow=TRUE);
         wind.avg <- R01 %*% wind.avg;
         wind.cov <- R01 %*% wind.cov %*% t(R01);
-        
+
         # Store second rotation angle, for further reference
         rot.phi[i] <- atan2(wind.avg[3], sqrt(wind.avg[1]^2 + wind.avg[2]^2))*180/pi;
-        
+
         # Build and apply second rotation matrix
         denom <- sqrt(wind.avg[1]^2 + wind.avg[3]^2);
         if(!is.null(denom) && !is.na(denom) && denom > 1.e-3) {
@@ -3313,10 +3316,10 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
         R12 <- matrix(c(cos.b, 0, sin.b, 0, 1, 0, -sin.b, 0, cos.b), nrow=3, ncol=3, byrow=TRUE);
         wind.avg <- R12 %*% wind.avg;
         wind.cov <- R12 %*% wind.cov %*% t(R12);
-        
+
         # Build and apply third rotation matrix, if requested
         if(mode == "3.rotations") {
-          
+
           delta <- 0.5*atan2(2.*wind.cov[2,3], wind.cov[2,2] - wind.cov[3,3]);
           delta[(abs(delta*180/pi) > third.rotation.angular.threshold)] <- 0.0; # Suppress rotation exceeding desired threshold angle
           sin.d <- sin(delta);
@@ -3324,15 +3327,15 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
           R23 <- matrix(c(1, 0, 0, 0, cos.d, sin.d, 0, -sin.d, cos.d), nrow=3, ncol=3, byrow=TRUE);
           wind.avg <- R23 %*% wind.avg;
           wind.cov <- R23 %*% wind.cov %*% t(R23);
-          
+
         }
         else {
           delta <- 0.0;
         }
-        
+
         # Store third rotation angle, for future reference
         rot.psi[i] <- delta*180/pi;
-        
+
         # Reassemble result
         u.avg.rot[i] <- wind.avg[1];
         v.avg.rot[i] <- wind.avg[2];
@@ -3343,49 +3346,49 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
         vv.rot[i]    <- wind.cov[2,2];
         vw.rot[i]    <- wind.cov[2,3];
         ww.rot[i]    <- wind.cov[3,3];
-        
+
       }
     }
   }
-  
+
   #########################
   # Compute basic indices #
   #########################
-  
+
   # Compute wind provenance direction (useful to classify data)
   Dir <- atan2(-d$data$u.avg[desired.wind],-d$data$v.avg[desired.wind]) * 180/pi;
   Dir.negative <- !is.na(Dir) & Dir < 0;
   Dir[Dir.negative] <- Dir[Dir.negative] + 360.0;
-  
+
   # Friction velocity, according to the signless definition
   u.star <- (uw.rot[desired.wind]^2 + vw.rot[desired.wind]^2)^0.25;
-  
+
   # Angle to horizontal plane
   ang.Phi <- atan2(d$data$w.avg[desired.wind], d$data$vel[desired.wind])*180/pi;
-  
+
   # Turbulence intensity, time-dependent
   T.time.series <- d$data$vel.sd[desired.wind] / d$data$vel[desired.wind];
-  
+
   # Mean turbulence intensity and related quantities (Warning: not the
   # mean value of time-dependent turbulent intensity!)
   mean.vel.sd <- mean(d$data$vel.sd[desired.wind], na.rm=TRUE);
   mean.vel    <- mean(d$data$vel[desired.wind], na.rm=TRUE);
   T           <- mean.vel.sd / mean.vel;
-  
+
   # Coefficient of mean power available in wind
   mean.power.coef   <- sqrt(d$data$u.avg[desired.wind]^2 + d$data$v.avg[desired.wind]^2)^3;
   mean.power.coef.3 <- sqrt(d$data$u.avg[desired.wind]^2 + d$data$v.avg[desired.wind]^2 + d$data$w.avg[desired.wind]^2)^3;
-  
+
   # Total power present in wind (turbulent fluctuations included)
   tot.power.coef   <- d$data$vel3[desired.wind];
   tot.power.coef.3 <- d$data$vel3.3[desired.wind];
-  
+
   # Cumulative wind speed empirical distribution
   cum.vel <- ecdf(d$data$vel[desired.wind]);
-  
+
   # Function to estimate the Weibull parameters given a data series
   weibull.estimate <- function(d, verbose=FALSE) {
-    
+
     # Compute mean and standard deviation
     m <- mean(d, na.rm=TRUE);
     s <- sd(d, na.rm=TRUE);
@@ -3397,7 +3400,7 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
       if(verbose) print("weibull.estimate:: error: Mean and standard deviation must be positive");
       return(NULL);
     }
-    
+
     # Solve the auxiliary equation to identify parameter "alpha"
     # -1- Function definition
     m.s.ratio <- function(a, m, s) sqrt(gamma(1+2/a)/gamma(1+1/a)^2-1) - s/m;
@@ -3409,34 +3412,34 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
     # -1- Solve equation
     result <- uniroot(function(x,m,s) sqrt(gamma(1+2/x)/gamma(1+1/x)^2-1) - s/m, lower=lower.bound, upper=upper.bound, tol=1e-4, m=m, s=s);
     alpha <- result$root;
-    
+
     # Compute the remaining parameter, beta, directly
     beta <- m/gamma(1+1/alpha);
-    
+
     # Leave
     return(list(
       alpha = alpha,
       beta  = beta
     ));
-    
+
   }
-  
+
   # Perform actual Weibull parameters estimation
   w.est <- weibull.estimate(d$data$vel[desired.wind], verbose=verbose);
   alpha <- w.est$alpha;
   beta  <- w.est$beta;
-  
+
   # Perform a test to check empirical distribution against Weibull, as estimated
   k <- ks.test(x=d$data$vel[desired.wind], y="pweibull", alpha, beta);
   weibull.statistic   <- k$statistic;
   weibull.probability <- k$p.value;
-  
+
   # Estimate log-normal parameters the direct way
   std.vel <- sd(d$data$vel[desired.wind],na.rm=TRUE);
   p <- log(1+(std.vel/mean.vel)^2);
   lognormal.mean <- log(mean.vel) - p/2;
   lognormal.sd   <- sqrt(p);
-  
+
   # Perform a test to check empirical distribution against lognormal, as estimated
   k <- ks.test(x=d$data$vel[desired.wind], y="plnorm", lognormal.mean, lognormal.sd);
   lognormal.statistic   <- k$statistic;
@@ -3455,7 +3458,7 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
   e$mean.power.coef.3 <- mean.power.coef.3;
   e$tot.power.coef    <- tot.power.coef;
   e$tot.power.coef.3  <- tot.power.coef.3;
-  
+
   # Leave
   result <- list(
     data                  = e,
@@ -3484,37 +3487,37 @@ wind.power <- function(d, mode="2.rotations", cut.speed=TRUE, lower.cut.speed=6,
   );
   class(result) <- "sonic.wind.power.data";
   return(result);
-  
+
 }
 
 
 hildeman.wilson.process <- function(sample.size, mu, sigma, intermittency) {
-  
+
   # If intermittency is greater than or equal to 1, the Hildemann-Wilson process
   # degenerates to an identically 0 sample
   if(intermittency >= 1) return(rep(0, times=sample.size));
-  
+
   # Treat negative intermittency as if zero
   if(intermittency < 0) intermittency = 0;
-  
+
   # Convert true mean and standard deviation to the corresponding
   # log-normal parameters
   Q <- log(1+(sigma/mu)^2);
   m <- log(mu) - 0.5*Q;
   s <- sqrt(Q);
-  
+
   # Extract primary log-normal sample
   smpl <- rlnorm(sample.size, m, s);
-  
+
   # Determine the variable value corresponding to desired intermittency, then
   # subtract it from sample and clip to zero
   itrm.val <- qlnorm(intermittency, m, s);
   smpl <- smpl - itrm.val;
   smpl[smpl < 0] <- 0;
-  
+
   # Leave
   return(smpl);
-  
+
 }
 
 # Multiresolution analysis #
@@ -3522,7 +3525,7 @@ hildeman.wilson.process <- function(sample.size, mu, sigma, intermittency) {
 # Perform the actual multiresolution decomposition on a (time stamp, value) couple
 # of equal sized vectors
 multires <- function(t.stamp, val, steps) {
-  
+
   # Inputs:
   #
   #   t.stamp   Time stamp vector
@@ -3532,50 +3535,50 @@ multires <- function(t.stamp, val, steps) {
   #   steps     Sequence of decreasing time steps, made so that
   #             steps[i] divides steps[i-1]
   #
-  
+
   # Reserve workspace
   n.steps <- length(steps);
   multires.values <- data.frame(t.stamp);
   vars            <- numeric(n.steps);
-  
+
   # Main loop
   residual <- val;
   decomposition <- numeric(length(val));
   for(i in 1:n.steps) {
-    
+
     # Prepare residual name based on step value
     mean.name <- sprintf("M.%d", i);
     dec.name  <- sprintf("D.%d", i);
     res.name  <- sprintf("R.%d", i);
-    
+
     # Use time stamps to generate the time aggregation function, and use it
     time.block  <- as.integer(floor(t.stamp)) %/% steps[i];
     block.means <- aggregate(residual, by=list(time.block), FUN=mean, na.rm=TRUE);
-    
+
     # Translate time block to 1-based index form
     block.index <- time.block - block.means$Group.1[1] + 1;
-    
+
     # Construct a vector of same length as original data, and values equal
     # to block averages; deduce block residual from it
     block.means.val  <- block.means$x;
     block.means.full <- block.means.val[block.index];
     block.residual   <- residual - block.means.full;
-    
+
     # Compute the total variance pertaining the full-length block averages
     block.variance <- var(block.means.full, na.rm=TRUE);
-    
+
     # Update residual and decomposition
     residual <- block.residual;
     decomposition <- decomposition + block.means.full;
-    
+
     # Accumulate variances, means and residuals
     multires.values[res.name]  <- residual;
     multires.values[dec.name]  <- decomposition;
     multires.values[mean.name] <- block.means.full;
     vars[i] <- block.variance;
-    
+
   }
-  
+
   # Build output
   l <- list(
     mres            = multires.values,
@@ -3585,13 +3588,13 @@ multires <- function(t.stamp, val, steps) {
   );
   class(l) <- "multires.analysis";
   return(l);
-  
+
 }
 
 
 # Build a vector of halving time scales until a threshold is reached
 build.steps <- function(max.duration=3600, threshold=0.2) {
-  
+
   # Count elements
   n <- 0;
   val <- max.duration;
@@ -3600,7 +3603,7 @@ build.steps <- function(max.duration=3600, threshold=0.2) {
     val <- val/2;
   }
   vect <- numeric(n);
-  
+
   # Build vector
   i <- 0;
   val <- max.duration;
@@ -3699,7 +3702,7 @@ step.in.day <- function(date.time, delta.time=3600) {
 # as original input series, allowing for example to compute anomalies by subtracting
 # the computed daily means from the input signal values.
 daily.base.stats <- function(time.stamp, value, time.zone="UTC") {
-  
+
   # Compute daily mean, minimum and maximum
   dd <- day.number(time.stamp, floor.day(min(time.stamp,na.rm=TRUE)), time.zone);
   u  <- data.frame(time.stamp, dd, value);
@@ -3709,7 +3712,7 @@ daily.base.stats <- function(time.stamp, value, time.zone="UTC") {
   l.a <- merge(u, a, by="dd");
   l.i <- merge(u, mi, by="dd");
   l.x <- merge(u, mx, by="dd");
-  
+
   # Get important columns only
   t     <- l.a$time.stamp.x;
   value <- l.a$value.x;
@@ -3718,7 +3721,7 @@ daily.base.stats <- function(time.stamp, value, time.zone="UTC") {
   mx    <- l.x$value.y;
   rsl   <- data.frame(Time.Stamp=t, Value=value, Mean=mean, Min=mi, Max=mx);
   return(rsl);
-  
+
 }
 
 
