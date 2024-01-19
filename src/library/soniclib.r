@@ -186,7 +186,7 @@ get.raw.data <- function(file.name, sampling.rate=10, threshold=0.005, verbose=F
 
 
 # Read consecutive data files to a unique file and aggregate data if required.
-get.multi.raw.data <- function(name.first.file, n.hours=1, sampling.rate=10, threshold=0.005, average.by="none", verbose=FALSE) {
+get.multi.raw.data <- function(name.first.file, n.hours=1, sampling.rate=10, threshold=0.005, average.by="none", R.in.name=FALSE, verbose=FALSE) {
 
   # Input values:
   #
@@ -200,6 +200,10 @@ get.multi.raw.data <- function(name.first.file, n.hours=1, sampling.rate=10, thr
   #
   #    average.by           String, specifying how averaging should be performed (default="none",
   #                         allowed values = "none", "seconds" and "minutes")
+  #
+  #    R.in.name            Boolean flag indicating whether file names conform to original
+  #                         SonicLib format, yyyymmdd.hh.csv (FALSE), or MeteoFlux Core V2 derived
+  #                         name yyyymmdd.hhR.csv
   #
   #    verbose              Boolean flag indicating whether status / error messages are desired,
   #                         or not; in the latter case error conditions are reported by restituting
@@ -231,7 +235,12 @@ get.multi.raw.data <- function(name.first.file, n.hours=1, sampling.rate=10, thr
   );
   hours <- 3600*(0:(n.hours-1));
   time.stamp.set <- time.stamp + hours;
-  file.set <- strftime(time.stamp.set, format="%Y%m%d.%H.csv", tz="UTC");
+  if(R.in.name) {
+    file.set <- strftime(time.stamp.set, format="%Y%m%d.%HR.csv", tz="UTC");
+  }
+  else {
+    file.set <- strftime(time.stamp.set, format="%Y%m%d.%H.csv", tz="UTC");
+  }
   file.set <- paste(path, file.set, sep="");
 
   # Read and append all data files in list
@@ -338,7 +347,7 @@ set.spike.detection.threshold <- function(u=NULL, v=NULL, w=NULL, t=NULL, q=NULL
 #
 #    S.Cesco, M.Favaron
 #
-average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, trend.removal="none", spike.detection.threshold=3, spike.treatment="set.na", min.fraction.valid=0.75, min.valid.data=2, file.dump=NULL, verbose=FALSE) {
+average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, trend.removal="none", spike.detection.threshold=3, spike.treatment="set.na", min.fraction.valid=0.75, min.valid.data=2, file.dump=NULL, R.in.name=FALSE, verbose=FALSE) {
 
   # Inputs:
   #
@@ -1543,6 +1552,7 @@ average.sonic.file.set <- function(
     min.fraction.valid=0.75,
     min.valid.data=2,
     save.modified.raw.data=FALSE,
+    R.in.name=FALSE,
     verbose=FALSE
 ) {
 
@@ -1557,7 +1567,7 @@ average.sonic.file.set <- function(
   }
   t.s <- rep(as.POSIXct("1900-01-01 00:00:00",tz=time.zone), times=n);
   for(idx in 1:n) {
-    t.s[idx] <- time.stamp.from.name(file.list[idx], time.zone, shift, verbose);
+    t.s[idx] <- time.stamp.from.name(file.list[idx], time.zone, shift, R.in.name, verbose);
   }
 
   # Iteratively read data, process them and append results to data frame
@@ -3182,7 +3192,7 @@ enumerate.sonic.csv <- function(dir.name = ".", generate.full.path.names=TRUE) {
 
 # Given a SonicLib raw data file name, this routine returns its corresponding
 # time stamp
-time.stamp.from.name <- function(file.name, time.zone="UTC", shift=0, verbose=FALSE) {
+time.stamp.from.name <- function(file.name, time.zone="UTC", shift=0, R.in.name=FALSE, verbose=FALSE) {
 
   # Input:
   #
@@ -3194,6 +3204,9 @@ time.stamp.from.name <- function(file.name, time.zone="UTC", shift=0, verbose=FA
   #                errors in file naming, e.g. by data acquisition system time misalignment
   #                (default: 0)
   #
+  #   R.in.name    Boolean flag: TRUE if name contains an "R" (MeteoFlux-originating data)
+  #                and FALSE (default) for standard SonicLib file
+  #
   #   verbose      Boolean flag: TRUE to print error / progress messages, FALSE to
   #                not print (default: FALSE)
   #
@@ -3204,10 +3217,18 @@ time.stamp.from.name <- function(file.name, time.zone="UTC", shift=0, verbose=FA
 
   # Parse date and time from name
   str.len <- nchar(file.name);
-  year  <- as.integer(substr(file.name, start=str.len-14, stop=str.len-11));
-  month <- as.integer(substr(file.name, start=str.len-10, stop=str.len-9));
-  day   <- as.integer(substr(file.name, start=str.len-8, stop=str.len-7));
-  hour  <- as.integer(substr(file.name, start=str.len-5, stop=str.len-4));
+  if(R.in.name) {
+    year  <- as.integer(substr(file.name, start=str.len-15, stop=str.len-12));
+    month <- as.integer(substr(file.name, start=str.len-11, stop=str.len-10));
+    day   <- as.integer(substr(file.name, start=str.len-9, stop=str.len-8));
+    hour  <- as.integer(substr(file.name, start=str.len-6, stop=str.len-5));
+  }
+  else {
+    year  <- as.integer(substr(file.name, start=str.len-14, stop=str.len-11));
+    month <- as.integer(substr(file.name, start=str.len-10, stop=str.len-9));
+    day   <- as.integer(substr(file.name, start=str.len-8, stop=str.len-7));
+    hour  <- as.integer(substr(file.name, start=str.len-5, stop=str.len-4));
+  }
   if(is.na(year) || is.na(month) || is.na(day) || is.na(hour)) return(NULL);
 
   # Compose date string
