@@ -1489,6 +1489,7 @@ average.sonic.file.set(
   trend.removal="none",
   spike.detection.threshold=3,
   spike.treatment="set.na",
+  R.in.name=FALSE,
   verbose=FALSE
 )
 \end{verbatim} 
@@ -1506,6 +1507,7 @@ average.sonic.file.set(
  \item[trend.removal] is a string specifying the trend removal algorithm to use. Possible values are ``none'' (no trend removal is performed), ``linear'' (trend is estimated by linear least squares regression and removed in mean-preserving fashion). The default is ``none''.
  \item[spike.detection.threshold] A real number indicating a unique spike detection threshold to be used for all channels, or a structure of type \verb|spike.detection.threshold| containing the individual thresholds for each channel. All spike detection threshold values are positive numbers meaning a iven number of standard deviations. For example, a value of 2 means "two standard deviations". Default: 3.
  \item[spike.treatment] String, meaning the type of processing to be made on spikes. The possible choices are "none" (no spike processing made, in which case parameter \verb|spike.detection.threshold| is ignored), and "set.na" (spikes are replaced with NA values). Default: "set.na".
+ \item[R.in.names] Boolean flag indicating whether file names conform to the standard SonicLib form (\em{yyyymmdd.hh}.csv) (FALSE, default), or to the MeteoFlux Core V2 derived form (\em{yyyymmdd.hh}R.csv) (TRUE).
  \item[verbose] Boolean flag indicating whether output messages should be printed (TRUE) or not (FALSE).
 \end{description}
 
