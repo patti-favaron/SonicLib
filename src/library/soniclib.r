@@ -1,6 +1,7 @@
 library(boot);
 library(plotrix);
 library(deSolve);
+library(L1pack)
 
 #------------------------------------------------------------------
 #
@@ -25,7 +26,7 @@ library(deSolve);
 # Statement of Licensing Conditions
 #------------------------------------------------------------------
 #
-# Copyright 2022 Patrizia Favaron
+# Copyright 2026 Patrizia Favaron
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation
@@ -373,7 +374,9 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
   #
   #   trend.removal     String, specifying how trend removal should be accomplished.
   #                     Possible values are "none" (no trend removal), "linear"
-  #                     (a linear trend is estimated by least squares fit).
+  #                     (linear trend is estimated by least squares fit), "robust"
+  #                     (linear trend is estimated by least absolute deviation fit,
+  #                     identified using the Barrodale and Roberts method)
   #
   #                     Default is "none".
   #
@@ -654,7 +657,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
   }
 
   # Reserve space for trend removal indicators
-  if(trend.removal == "linear") {
+  if(trend.removal == "linear" || trend.removal == "robust") {
 
     # Create all mandatory data vectors
     u.trend.slope    <- numeric(num.blocks);
@@ -1401,7 +1404,7 @@ average.sonic.data <- function(d, initial.stamp, averaging.time=30, delay=0.3, t
   if(exists.rel.humidity) {
     data$hrel.avg  <- hrel.avg;
   }
-  if(trend.removal == "linear") {
+  if(trend.removal == "linear" || trend.removal == "robust") {
     data$u.trend.slope    <- u.trend.slope;
     data$u.trend.constant <- u.trend.constant;
     data$v.trend.slope    <- v.trend.slope;
@@ -3143,6 +3146,19 @@ remove.trend <- function(s, method) {
     if(!is.na(avg)) {
       idx  <- 1:length(s);
       s.lm <- lm(s~idx, na.action=na.exclude);
+      constant <- s.lm$coefficients[1]; # Intercept
+      slope    <- s.lm$coefficients[2];
+      data     <- s - (idx*slope + constant); # Not using "residual(s.lm)", which does not deal with missing data
+      data     <- data - mean(data, na.rm=TRUE) + avg;
+      result<-list(data=data, constant=constant, slope=slope);
+    }
+    else result <- list(data=s, constant=NA, slope=NA);
+  }
+  else if(method == "robust") {
+    avg <- mean(s, na.rm=TRUE);
+    if(!is.na(avg)) {
+      idx  <- 1:length(s);
+      s.lm <- lad(s~idx, na.action=na.exclude, method="BR", maxiter=1000);
       constant <- s.lm$coefficients[1]; # Intercept
       slope    <- s.lm$coefficients[2];
       data     <- s - (idx*slope + constant); # Not using "residual(s.lm)", which does not deal with missing data
